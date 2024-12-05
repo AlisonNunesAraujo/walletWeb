@@ -76,7 +76,7 @@ export default function Home() {
 
     Push();
 
-    async function Ga() {
+    async function Gastos() {
       const ref = collection(db, "gastos");
 
       getDocs(ref).then((snapshot) => {
@@ -93,22 +93,27 @@ export default function Home() {
       });
     }
 
-    Ga();
+    Gastos();
+  }, []);
 
-    
 
-   
+
   
-  }, [Deletar,DeletarGastos]);
 
-  async function Sair(){
+
+
+
+
+
+
+  async function Sair() {
     LogOut();
   }
+
   async function Deletar(id) {
     const ref = doc(db, "receita", id);
 
     await deleteDoc(ref)
-     
       .then(() => {
         toast.success("Excluido com sucesso!");
       })
@@ -118,9 +123,9 @@ export default function Home() {
   }
 
   async function DeletarGastos(id) {
-    const ref = doc(db, "gastos", id);
+    const data = doc(db, "gastos", id);
 
-    await deleteDoc(ref)
+    await deleteDoc(data)
       .then(() => {
         toast.success("Excluido com sucesso!");
       })
@@ -129,16 +134,16 @@ export default function Home() {
       });
   }
 
-
-
   return (
     <div className="conteiener">
       <div className="area">
         <div className="areaEmail">
           <h2 className="title">Gerencie suas movimentações de valores!</h2>
           <div className="areaBntSair">
-            <h3 className="textEmail">email: {user.user.email}</h3>
-            <button className="bntSair" onClick={Sair}>Sair</button>
+            <h3 className="textEmail">E-mail: {user.user.email}</h3>
+            <button className="bntSair" onClick={Sair}>
+              Sair
+            </button>
           </div>
         </div>
         <div className="areaInput">
@@ -174,7 +179,7 @@ export default function Home() {
         </div>
 
         <div className="areaRenderGastos">
-          <h2  className="textTipo">Gastos</h2>
+          <h2 className="textTipo">Gastos</h2>
           {gastos.map((item) => (
             <div>
               <p className="textValor">R$ {item.valor}</p>
