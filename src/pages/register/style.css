@@ -1,0 +1,43 @@
+.conteiner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    height: 320px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.TitleRegister{
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.inputs{
+    margin: 10px;
+    padding: 10px;
+    gap: 10px;
+    width: 40%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.bnt{
+    width: 20%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.bntVoltar{
+    text-decoration: none;
+    margin-top: 10px;
+}

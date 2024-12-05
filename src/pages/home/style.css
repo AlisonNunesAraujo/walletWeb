@@ -1,0 +1,214 @@
+.area{
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 2px 2px;
+}
+.title{
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    margin-left: 60px;
+}
+.areaInput{
+    width: 60%;
+    height: 100px;
+    padding: 15px;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.input{
+    width: 50%;
+    height: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 30px;
+
+}
+
+.bntAdd{
+    margin-top: 10px;
+    border: none;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 500ms;
+
+}
+
+
+.bntAdd:hover{
+    background-color: blueviolet;
+    color: white;
+}
+
+.areaBnts{
+    display: flex;
+    margin: 30px;
+    gap: 10px;
+}
+
+.bntGastos{
+    margin-top: 10px;
+    border: none;
+    transition: 500ms;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 500ms;
+    font-weight: 600;
+}
+
+.bntGastos:hover{
+    background-color: red;
+    color: white;
+}
+
+.areaRenderDados{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.areaRenderReceita{
+    box-shadow: 0px 0px 2px 2px;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 255, 0.721);
+    gap: 10px;
+}
+
+.areaRenderGastos{
+    box-shadow: 0px 0px 2px 2px;
+    width: 20%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+    background-color: rgba(255, 6, 6, 0.866);
+   
+}
+
+.textValor{
+    color: white;
+    margin: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.bntExcluir{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    transition: 500ms;
+}
+
+.bntExcluir:hover{
+    background-color: red;
+    color: white;
+}
+
+.areadados{
+    gap: 10px;
+}
+
+.areaEmail{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.textEmail{
+    font-weight: 100;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 0.1em;
+    font-style: italic;
+}
+
+.areaBntSair{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.bntSair{
+    margin-top: 5px;
+    padding: 5px;
+    width: 10%;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px ;
+    transition: 500ms;
+    background-color: blue;
+    color: white;
+    font-weight: 600;
+}
+
+.textTipo{
+    color: white;
+    font-style: italic;
+}
+
+.bntSair:hover{
+    background-color: red;
+    
+  
+}
+
+/* .conteiener{
+    width: 100%;
+    background-color: chartreuse;
+} */
+
+@media (max-width: 450px){
+    .area{
+        width: 100%;
+        height: 250px;
+        background-color: beige;
+    }
+    .title{
+        font-size: 15px;
+        margin-right: 30px;
+    }
+
+    .areaInput{
+        width: 80%;
+    }
+
+    .areaRenderReceita{
+        width: 40%;
+    }
+    .areaRenderGastos{
+        width: 40%;
+    }
+    .bntSair{
+        width: 80%;
+    }
+
+    .areaBntSair{
+        display: flex;
+        flex-direction: row;
+        margin-right: 50px;
+        justify-content: center;
+        gap: 10px;
+    }
+}
