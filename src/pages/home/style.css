@@ -1,24 +1,33 @@
+.conteiner{
+    height: 100vh;
+    background-color: #1C1C1C;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .area{
     width: 100%;
     height: 200px;
-    background-color: white;
+    background-color: #363636;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0px 0px 2px 2px;
+    box-shadow: 0px 3px 5px 2px;
 }
 .title{
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 400;
+    font-weight: 800;
     margin-left: 60px;
+    color: white;
 }
 .areaInput{
     width: 60%;
     height: 100px;
     padding: 15px;
-    background-color: cadetblue;
+    background-color: #363636;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,12 +37,13 @@
 
 .input{
     width: 50%;
-    height: 20px;
+    height: 30px;
     border: none;
     outline: none;
     border-radius: 5px;
     padding: 5px;
     margin-top: 30px;
+    box-shadow: 0px 1px 1px 1px;
 
 }
 
@@ -44,6 +54,7 @@
     padding: 10px;
     border-radius: 5px;
     transition: 500ms;
+    background-color: rgb(232, 224, 224);
 
 }
 
@@ -67,6 +78,7 @@
     border-radius: 5px;
     transition: 500ms;
     font-weight: 600;
+    background-color: rgb(232, 224, 224);
 }
 
 .bntGastos:hover{
@@ -79,34 +91,46 @@
     flex-direction: row;
     justify-content: space-around;
     margin-top: 30px;
+
 }
 
 .areaRenderReceita{
-    box-shadow: 0px 0px 2px 2px;
     width: 20%;
+    height: 60vh;
+    overflow-y: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
     border-radius: 5px;
-    background-color: rgba(0, 0, 255, 0.721);
+    background-color: #363636;
     gap: 10px;
+    box-shadow: 0px 5px 5px 2px;
+    margin: 0;
+    padding: 0;
+   
 }
 
 .areaRenderGastos{
-    box-shadow: 0px 0px 2px 2px;
     width: 20%;
+    height: 60vh;
+    overflow-y: auto;
     border-radius: 5px;
     display: flex;
     align-items: center;
     gap: 10px;
     flex-direction: column;
-    background-color: rgba(255, 6, 6, 0.866);
+    background-color: #363636;
+    box-shadow: 0px 5px 5px 2px;
+    margin: 0;
+    padding: 0;
+
    
 }
 
 .textValor{
     color: white;
     margin: 5px;
+    font-size: 18px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -131,13 +155,15 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    background-color: #363636;
 }
 
 .textEmail{
-    font-weight: 100;
+    font-weight: 800;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     letter-spacing: 0.1em;
     font-style: italic;
+    color: white;
 }
 
 .areaBntSair{
@@ -153,10 +179,10 @@
 .bntSair{
     margin-top: 5px;
     padding: 5px;
-    width: 10%;
+    width: 20%;
     border: none;
     border-radius: 5px;
-    box-shadow: 0px 1px 1px ;
+    box-shadow: 0px 1px 1px 1px black;
     transition: 500ms;
     background-color: blue;
     color: white;
@@ -165,7 +191,9 @@
 
 .textTipo{
     color: white;
-    font-style: italic;
+    letter-spacing: 5px;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 .bntSair:hover{
@@ -174,16 +202,20 @@
   
 }
 
-
+/* .conteiener{
+    width: 100%;
+    background-color: chartreuse;
+} */
 
 @media (max-width: 450px){
     .area{
         width: 100%;
         height: 250px;
-        background-color: beige;
+        background-color: #363636;
+      
     }
     .title{
-        font-size: 15px;
+        font-size: 13px;
         margin-right: 30px;
     }
 
@@ -193,19 +225,29 @@
 
     .areaRenderReceita{
         width: 40%;
+        height: 50vh;
     }
     .areaRenderGastos{
         width: 40%;
+        height: 50vh;
     }
     .bntSair{
-        width: 80%;
+        width: 70%;
     }
 
     .areaBntSair{
         display: flex;
-        flex-direction: row;
-        margin-right: 50px;
+        flex-direction: column;
+        margin-right: 30px;
         justify-content: center;
-        gap: 10px;
+        gap: 5px;
+    }
+    .textEmail{
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 800;
+    }
+    .input{
+        width: 70%;
     }
 }

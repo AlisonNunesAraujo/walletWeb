@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Context>
-        <ToastContainer autoClose={2000}/>
+        <ToastContainer autoClose={1000}/>
         <Routs/>
       </Context>
     </BrowserRouter>
