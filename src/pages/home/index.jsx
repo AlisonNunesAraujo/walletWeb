@@ -1,6 +1,6 @@
 import "./style.css";
 
-import { addDoc, doc, getDocs } from "firebase/firestore";
+import { addDoc, doc, getDocs, where,query } from "firebase/firestore";
 
 import { collection } from "firebase/firestore";
 import { toast } from "react-toastify";
@@ -10,10 +10,7 @@ import { deleteDoc } from "firebase/firestore";
 import { AuthContext } from "../../context";
 import { useContext } from "react";
 
-import { useNavigate } from "react-router-dom";
-
 export default function Home() {
-  const navigate = useNavigate();
   const { user, LogOut } = useContext(AuthContext);
 
   const [dados, setDados] = useState("");
@@ -30,6 +27,7 @@ export default function Home() {
     try {
       const response = await addDoc(collection(db, "receita"), {
         valor: dados,
+        uid: user.user.uid,
       });
       setDados("");
       toast.success("Adicionado com sucesso!");
@@ -48,6 +46,7 @@ export default function Home() {
     try {
       const response = await addDoc(collection(db, "gastos"), {
         valor: dados,
+        uid: user.user.uid
       });
       setDados("");
       toast.success("Adicionado com sucesso!");
@@ -58,9 +57,11 @@ export default function Home() {
 
   useEffect(() => {
     async function Push() {
+      const uid = user.user.uid;
       const ref = collection(db, "receita");
-
-      getDocs(ref).then((snapshot) => {
+      const receitaQuery = query(ref, where("uid", "==", uid));
+      getDocs(receitaQuery)
+      .then((snapshot) => {
         let lista = [];
 
         snapshot.forEach((doc) => {
@@ -77,9 +78,11 @@ export default function Home() {
     Push();
 
     async function Gastos() {
+      const uid = user.user.uid;
       const ref = collection(db, "gastos");
+      const gastosQuery = query(ref, where("uid", "==", uid));
 
-      getDocs(ref).then((snapshot) => {
+      getDocs(gastosQuery).then((snapshot) => {
         let lista = [];
 
         snapshot.forEach((doc) => {
@@ -88,23 +91,14 @@ export default function Home() {
             valor: doc.data().valor,
           });
         });
+        console.log(lista);
 
         setGastos(lista);
       });
     }
 
     Gastos();
-  }, []);
-
-
-
-  
-
-
-
-
-
-
+  }, [Deletar, DeletarGastos]);
 
   async function Sair() {
     LogOut();
@@ -135,10 +129,11 @@ export default function Home() {
   }
 
   return (
-    <div className="conteiener">
+    <div className="conteiner">
       <div className="area">
         <div className="areaEmail">
           <h2 className="title">Gerencie suas movimentações de valores!</h2>
+          
           <div className="areaBntSair">
             <h3 className="textEmail">E-mail: {user.user.email}</h3>
             <button className="bntSair" onClick={Sair}>

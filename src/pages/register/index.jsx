@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { AuthContext } from "../../context";
+import { toast } from "react-toastify";
 
 export default function Register() {
   const { RegisterUser } = useContext(AuthContext);
@@ -15,14 +16,14 @@ export default function Register() {
   function Hendle(e) {
     e.preventDefault();
     if( email === '' | senha ===''){
-        alert('campo obrigatorio')
+        toast.error('O campo é obrigatório')
         return;
     }
     RegisterUser(email, senha);
   }
 
   return (
-    <div className="conteiner">
+    <div className="cont">
       <form className="form">
         <h1 className="TitleRegister">Faça seu registro</h1>
         <input
@@ -34,6 +35,7 @@ export default function Register() {
         <input
           placeholder="Senha"
           className="inputs"
+          type="password"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />

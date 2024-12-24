@@ -1,32 +1,37 @@
-.conteiner{
+.grupo{
+    width: 100%;
+    height: 100vh;
+    background-color: #1C1C1C;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .form{
     display: flex;
     flex-direction: column;
-    height: 320px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    width: 50%;
+    background-color: #363636;
 }
 .Title{
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 30px;
+    font-weight: 600;
     letter-spacing: 2px;
     font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 4px;
+    color: white;
 }
 
 .inputs{
     margin: 10px;
     padding: 10px;
     gap: 10px;
-    width: 40%;
+    width: 30%;
     border-radius: 5px;
     outline: none;
     border: none;
+    box-shadow: 0px 1px 1px;
+    background-color: white;
+    color: black;
 }
 
 .bnt{
@@ -35,9 +40,32 @@
     border: none;
     border-radius: 5px;
     margin-top: 10px;
+    transition: 500ms;
+    font-weight: 600;
 }
 
 .bntCriar{
     text-decoration: none;
     margin-top: 10px;
+    font-size: 15px;
+    color: white;
+}
+
+.bnt:hover{
+    background-color: blue;
+    color: white;
+}
+
+
+@media (max-width: 790px){
+    .grupo{
+        justify-content: center;
+        align-items: center;
+    }
+    .form{
+        width: 90%;
+    }
+    .inputs{
+        width: 80%;
+    }
 }
