@@ -212,7 +212,6 @@
         padding: 0;
     }
     .areaRenderDados{
-        gap: 30px;
         width: 100%;
     }
     .area{
@@ -231,11 +230,11 @@
     }
 
     .areaRenderReceita{
-        width: 40%;
+        width: 35%;
         height: 50vh;
     }
     .areaRenderGastos{
-        width: 40%;
+        width: 35%;
         height: 50vh;
     }
     .bntSair{
