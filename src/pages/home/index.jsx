@@ -1,5 +1,6 @@
 import "./style.css";
 
+
 import { addDoc, doc, getDocs, where,query } from "firebase/firestore";
 
 import { collection } from "firebase/firestore";
@@ -128,18 +129,14 @@ export default function Home() {
       });
   }
 
+  
+
   return (
     <div className="conteiner">
       <div className="area">
         <div className="areaEmail">
-          <h2 className="title">Gerencie suas movimentações de valores!</h2>
-          
-          <div className="areaBntSair">
-            <h3 className="textEmail">E-mail: {user.user.email}</h3>
-            <button className="bntSair" onClick={Sair}>
-              Sair
-            </button>
-          </div>
+          <h2 className="title">Bem Vindo!</h2>
+          <h3 className="textEmail">E-Mail: {user.user.email}</h3>
         </div>
         <div className="areaInput">
           <input
@@ -173,6 +170,7 @@ export default function Home() {
           ))}
         </div>
 
+        
         <div className="areaRenderGastos">
           <h2 className="textTipo">Gastos</h2>
           {gastos.map((item) => (
@@ -188,6 +186,11 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <div className="areaSair">
+        <button className="bntSair" onClick={Sair}>Sair da Conta!</button>
+      </div>
+
+      
     </div>
   );
 }

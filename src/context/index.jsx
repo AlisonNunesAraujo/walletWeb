@@ -15,20 +15,7 @@ export function Context({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    async function VerUser() {
-      if (LoadUser) {
-        const app = localStorage.getItem("@userLoad");
-        setUser(JSON.parse(app));
-      }
-    }
 
-    VerUser();
-  }, []);
-
-  async function LoadUser(user) {
-    const response = localStorage.setItem("@userLoad", JSON.stringify(user));
-  }
 
   async function RegisterUser(email, senha) {
     try {
@@ -37,7 +24,7 @@ export function Context({ children }) {
       toast.success("Conta craida com sucesso!");
       navigate("/Home");
 
-      localStorage.getItem(data.user);
+      // await LoadUser(data.user);
     } catch (err) {
       console;
       toast.error("Tente Novamente");
@@ -49,7 +36,7 @@ export function Context({ children }) {
       const data = await signInWithEmailAndPassword(auth, email, senha);
       toast.success("Bem Vindo!");
       setUser(data);
-      localStorage.getItem(data.user);
+     
       navigate("/Home");
     } catch (err) {
       toast.error("Tente novamente!");
