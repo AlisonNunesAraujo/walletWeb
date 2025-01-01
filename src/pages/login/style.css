@@ -7,9 +7,9 @@
     justify-content: center;
 }
 .form{
+    width: 40%;
     display: flex;
     flex-direction: column;
-    width: 50%;
     background-color: #363636;
 }
 .Title{
@@ -49,6 +49,7 @@
     margin-top: 10px;
     font-size: 15px;
     color: white;
+    letter-spacing: 2px;
 }
 
 .bnt:hover{

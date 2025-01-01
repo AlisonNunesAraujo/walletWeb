@@ -186,6 +186,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      
       <div className="areaSair">
         <button className="bntSair" onClick={Sair}>Sair da Conta!</button>
       </div>
