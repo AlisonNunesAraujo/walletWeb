@@ -48,7 +48,7 @@ export default function Home() {
       const response = await addDoc(collection(db, "gastos"), {
         valor: dados,
         uid: user.user.uid,
-        nome: user.nome,
+       
       });
       setDados("");
       toast.success("Adicionado com sucesso!");
