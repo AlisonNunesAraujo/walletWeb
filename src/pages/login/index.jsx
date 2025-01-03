@@ -6,7 +6,7 @@ import { AuthContext } from "../../context";
 import { toast } from "react-toastify";
 
 export default function Login() {
-  const { LogarUser } = useContext(AuthContext);
+  const { LogarUser,loading } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -43,9 +43,18 @@ export default function Login() {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
-        <button className="bnt" onClick={(e) => Hendle(e)}>
+        
+        { loading ? (
+          <button className="bnt" onClick={(e) => Hendle(e)}>
+          Carregando...
+        </button>
+        ): (
+          <button className="bnt" onClick={(e) => Hendle(e)}>
           Entrar
         </button>
+        )}
+
+
         <Link to="/Register" className="bntCriar">
           Criar conta!
         </Link>

@@ -8,24 +8,26 @@ import { AuthContext } from "../../context";
 import { toast } from "react-toastify";
 
 export default function Register() {
-  const { RegisterUser } = useContext(AuthContext);
+  const { RegisterUser,loading } = useContext(AuthContext);
 
+  
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
   function Hendle(e) {
     e.preventDefault();
-    if( email === '' | senha ===''){
-        toast.error('O campo é obrigatório')
-        return;
+    if ((email === "") | (senha === "")) {
+      toast.error("O campo é obrigatório");
+      return;
     }
-    RegisterUser(email, senha);
+    RegisterUser(email, senha,);
   }
 
   return (
     <div className="cont">
       <form className="form">
         <h1 className="TitleRegister">Faça seu registro</h1>
+
         <input
           placeholder="E-Mail"
           className="inputs"
@@ -39,9 +41,18 @@ export default function Register() {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
-        <button className="bnt" onClick={(e) => Hendle(e)}>
+        
+        { loading ? (
+          <button className="bnt" onClick={(e) => Hendle(e)}>
+          Criando...
+        </button>
+        ) : (
+          <button className="bnt" onClick={(e) => Hendle(e)}>
           Criar
         </button>
+        ) }
+
+
         <Link to="/" className="bntVoltar">
           Voltar
         </Link>

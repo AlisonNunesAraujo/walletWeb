@@ -7,39 +7,49 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-
-import { useNavigate } from "react-router-dom";
+import { doc } from "firebase/firestore";
+import {data, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { setDoc } from "firebase/firestore";
+import { db } from "../services/firebase";
 export function Context({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-
+  const [loading,setLoading] = useState(false)
+  
+  
 
   async function RegisterUser(email, senha) {
+    setLoading(true)
     try {
       const data = await createUserWithEmailAndPassword(auth, email, senha);
 
       toast.success("Conta craida com sucesso!");
       navigate("/Home");
 
+      setLoading(false)
       // await LoadUser(data.user);
     } catch (err) {
-      console;
+      setLoading(false)
       toast.error("Tente Novamente");
     }
   }
 
+
+
   async function LogarUser(email, senha) {
+    setLoading(true)
     try {
       const data = await signInWithEmailAndPassword(auth, email, senha);
       toast.success("Bem Vindo!");
       setUser(data);
-     
+      console.log(data)
+      setLoading(false)
       navigate("/Home");
     } catch (err) {
       toast.error("Tente novamente!");
+      setLoading(false)
     }
   }
 
@@ -56,7 +66,7 @@ export function Context({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut }}
+      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut,loading }}
     >
       {children}
     </AuthContext.Provider>

@@ -1,7 +1,6 @@
 import "./style.css";
 
-
-import { addDoc, doc, getDocs, where,query } from "firebase/firestore";
+import { addDoc, doc, getDocs, where, query } from "firebase/firestore";
 
 import { collection } from "firebase/firestore";
 import { toast } from "react-toastify";
@@ -14,6 +13,7 @@ import { useContext } from "react";
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
 
+  const [show, setShow] = useState(true);
   const [dados, setDados] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
@@ -47,7 +47,8 @@ export default function Home() {
     try {
       const response = await addDoc(collection(db, "gastos"), {
         valor: dados,
-        uid: user.user.uid
+        uid: user.user.uid,
+        nome: user.nome,
       });
       setDados("");
       toast.success("Adicionado com sucesso!");
@@ -61,8 +62,7 @@ export default function Home() {
       const uid = user.user.uid;
       const ref = collection(db, "receita");
       const receitaQuery = query(ref, where("uid", "==", uid));
-      getDocs(receitaQuery)
-      .then((snapshot) => {
+      getDocs(receitaQuery).then((snapshot) => {
         let lista = [];
 
         snapshot.forEach((doc) => {
@@ -129,14 +129,16 @@ export default function Home() {
       });
   }
 
-  
-
   return (
     <div className="conteiner">
       <div className="area">
+        <h2 className="title">Bem Vindo!</h2>
         <div className="areaEmail">
-          <h2 className="title">Bem Vindo!</h2>
           <h3 className="textEmail">E-Mail: {user.user.email}</h3>
+
+          <button className="bntSair" onClick={Sair}>
+            Sair da Conta!
+          </button>
         </div>
         <div className="areaInput">
           <input
@@ -154,44 +156,55 @@ export default function Home() {
               Gastos
             </button>
           </div>
-        </div>
-      </div>
 
-      <div className="areaRenderDados">
-        <div className="areaRenderReceita">
-          <h2 className="textTipo">Receita</h2>
-          {data.map((item) => (
-            <div key={item} className="areadados">
-              <p className="textValor">R$ {item.valor}</p>
-              <button className="bntExcluir" onClick={() => Deletar(item.id)}>
-                Excluir
-              </button>
-            </div>
-          ))}
+          
         </div>
-
         
-        <div className="areaRenderGastos">
-          <h2 className="textTipo">Gastos</h2>
-          {gastos.map((item) => (
-            <div>
-              <p className="textValor">R$ {item.valor}</p>
-              <button
-                className="bntExcluir"
-                onClick={() => DeletarGastos(item.id)}
-              >
-                Excluir
-              </button>
-            </div>
-          ))}
-        </div>
+        <div className="areabntOcultar">
+        {show ? (
+          <button className="bntOcultar" onClick={() => setShow(false)}>
+            Esconder lista
+          </button>
+        ) : (
+          <button className="bntOcultar" onClick={() => setShow(true)}>
+            Mostrar lista
+          </button>
+        )}
       </div>
-      
-      <div className="areaSair">
-        <button className="bntSair" onClick={Sair}>Sair da Conta!</button>
       </div>
 
       
+
+      {!!show && (
+        <div className="areaRenderDados">
+          <div className="areaRenderReceita">
+            <h2 className="textTipo">Receita</h2>
+            {data.map((item) => (
+              <div key={item} className="areadados">
+                <p className="textValor">R$ {item.valor}</p>
+                <button className="bntExcluir" onClick={() => Deletar(item.id)}>
+                  Excluir
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="areaRenderGastos">
+            <h2 className="textTipo">Gastos</h2>
+            {gastos.map((item) => (
+              <div>
+                <p className="textValor">R$ {item.valor}</p>
+                <button
+                  className="bntExcluir"
+                  onClick={() => DeletarGastos(item.id)}
+                >
+                  Excluir
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -15,7 +15,10 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 3px 5px 2px;
+   
 }
+
+
 .title{
     font-size: 30px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -26,20 +29,18 @@
 }
 .areaInput{
     width: 90%;
-    height: 100px;
-    padding: 10px;
+    height: 130px;
     background-color:  #363636;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     flex-direction: column;
-    margin-top: 50px;
+    
 }
 
 .input{
     width: 100%;
-    padding: 20px;
     border: none;
     outline: none;
     border-radius: 5px;
@@ -49,8 +50,9 @@
 }
 
 .bntAdd{
-    margin-top: 10px;
+    margin-top: 7px;
     border: none;
+    cursor: pointer;
     font-weight: 600;
     padding: 10px;
     border-radius: 5px;
@@ -67,13 +69,14 @@
 
 .areaBnts{
     display: flex;
-    margin: 30px;
+    margin: 5px;
     gap: 10px;
 }
 
 .bntGastos{
-    margin-top: 10px;
+    margin-top: 7px;
     border: none;
+    cursor: pointer;
     transition: 500ms;
     padding: 10px;
     border-radius: 5px;
@@ -91,8 +94,8 @@
     width: 50%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin-top: 30px;
+    justify-content: space-evenly;
+    margin-top: 60px;
 
 }
 
@@ -142,6 +145,7 @@
     border-radius: 5px;
     transition: 500ms;
     font-weight: bolder;
+    cursor: pointer;
 }
 
 .bntExcluir:hover{
@@ -183,14 +187,15 @@
 }
 
 .bntSair{
-    padding: 10px;
-    width: 100%;
+    padding: 7px;
+    width: 30%;
     border: none;
     border-radius: 5px;
     transition: 500ms;
     background-color: blue;
     color: white;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .textTipo{
@@ -206,15 +211,35 @@
   
 }
 
-.areaSair{
-    width: 10%;
-    margin-top: 40px;
+.areabntOcultar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
+.bntOcultar{
+    border: none;
+    width: 100%;
+    padding: 5px;
+    height: 33px;
+    border-radius: 5px;
+    transition: 500ms;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    transition: 500ms;
+    font-weight: 700;
+    
+}
 
+.bntOcultar:hover{
+    background-color: blue;
+    color: white;
+}
 
-
-@media (max-width: 600px) {
+@media (max-width: 890px) {
     .conteiner{
         width: 100%;
         height: 100vh;
@@ -224,16 +249,16 @@
     }
     .title{
         font-size: 30px;
-        margin-top: 0px;
+        margin-top: 5px;
     }
     .textEmail{
         font-family: Arial, Helvetica, sans-serif;
-        margin-bottom: 20px;
+        
     }
     .area{
         width: 100%;
-        margin-top: 0px;
-        height: 33vh;
+        height: 38vh;
+        box-shadow: 0px 0px 0px;
     }
     .areaInput{
         width: 80%;
@@ -244,6 +269,7 @@
     .areaRenderDados{
         width: 100%;
         height: 90vh;
+        margin-top: 20px;
     }
 
     .areaRenderReceita{
@@ -259,12 +285,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 0px;
-        background-color: #363636;
+        margin-block: 50px;
         
     }
     .bntSair{
-        width: 50%;
+        width: 30%;
         background-color: blue;
+    }
+    .bntOcultar:hover{
+        background-color: white;
+        color: black;
     }
 }
