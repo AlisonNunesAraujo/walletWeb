@@ -1,7 +1,7 @@
 .cont{
     width: 100%;
     height: 100vh;
-    background-color: 	#1C1C1C;
+    background-color: 	white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,11 +14,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    background-color: #363636;
+    background-color: white;
+    box-shadow: 0px 3px 5px 1px;
 }
 .TitleRegister{
     font-size: 25px;
-    color: white;
+    color: black;
     font-weight: 700;
     letter-spacing: 2px;
     font-family: Arial, Helvetica, sans-serif;
@@ -32,12 +33,12 @@
     border-radius: 5px;
     outline: none;
     border: none;
-    background-color: white;
     color: black;
+    box-shadow: 0x 1px 0px 1px;
 }
 
 .bnt{
-    width: 20%;
+    width: 40%;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -47,7 +48,7 @@
 .bntVoltar{
     text-decoration: none;
     margin-top: 10px;
-    color: white;
+    color: black;
 }
 
 @media (max-width: 790px){

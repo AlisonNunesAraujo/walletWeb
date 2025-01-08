@@ -7,17 +7,36 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { doc } from "firebase/firestore";
-import {data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { setDoc } from "firebase/firestore";
-import { db } from "../services/firebase";
+
 export function Context({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const [loading,setLoading] = useState(false)
+
+  useEffect(()=>{
+  async function VerUser(){
+    try{
+      const user =  localStorage.getItem('@user')
+      if(user){
+        setUser(JSON.parse('@user'))
+      }
+      return;
+     }
+     catch{
+      setUser(null)
+     }
+   }
+   VerUser();
+    
+    
+  },[])
   
+  async function LoadUser(user) {
+     localStorage.setItem('@user', JSON.stringify(user))
+  }
   
 
   async function RegisterUser(email, senha) {
@@ -29,7 +48,7 @@ export function Context({ children }) {
       navigate("/Home");
 
       setLoading(false)
-      // await LoadUser(data.user);
+      await LoadUser(data.user);
     } catch (err) {
       setLoading(false)
       toast.error("Tente Novamente");
@@ -44,7 +63,7 @@ export function Context({ children }) {
       const data = await signInWithEmailAndPassword(auth, email, senha);
       toast.success("Bem Vindo!");
       setUser(data);
-      console.log(data)
+      await LoadUser(data.user);
       setLoading(false)
       navigate("/Home");
     } catch (err) {
