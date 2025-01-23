@@ -160,7 +160,7 @@ export default function Home() {
           
         </div>
         
-        <div className="areabntOcultar">
+        {/* <div className="areabntOcultar">
         {show ? (
           <button className="bntOcultar" onClick={() => setShow(false)}>
             Esconder lista
@@ -170,7 +170,7 @@ export default function Home() {
             Mostrar lista
           </button>
         )}
-      </div>
+      </div> */}
       </div>
 
       
@@ -181,7 +181,7 @@ export default function Home() {
             <h2 className="textTipo">Receita</h2>
             {data.map((item) => (
               <div key={item} className="areadados">
-                <p className="textValor">R$ {item.valor}</p>
+                <p className="textValor">R${item.valor}</p>
                 <button className="bntExcluir" onClick={() => Deletar(item.id)}>
                   Excluir
                 </button>
@@ -192,8 +192,8 @@ export default function Home() {
           <div className="areaRenderGastos">
             <h2 className="textTipo">Gastos</h2>
             {gastos.map((item) => (
-              <div>
-                <p className="textValor">R$ {item.valor}</p>
+              <div className="areadados">
+                <p className="textValor">R${item.valor}</p>
                 <button
                   className="bntExcluir"
                   onClick={() => DeletarGastos(item.id)}

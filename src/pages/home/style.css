@@ -1,9 +1,10 @@
 .conteiner{
     width: 100%;
     height: 100vh;
-    background-color: white;
+    background: linear-gradient(to right, #00004d, #000000);
     display: flex;
     flex-direction: row;
+    
 }
 
 
@@ -11,6 +12,7 @@
     width: 25%;
     height: 100vh;
     background-color: white;
+    opacity: 0.9;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,12 +22,13 @@
 
 
 .title{
-    font-size: 30px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 600;
+    font-size: 25px;
+    font-family: 'Arial';
+    font-weight: 700;
     color: black;
     letter-spacing: 2px;
     margin-top: 40px;
+    margin-bottom: 20px;
 }
 .areaInput{
     width: 90%;
@@ -46,7 +49,7 @@
     border-radius: 5px;
     margin-top: 40px;
     padding: 5px;
-    box-shadow: 0px 2px 5px 0px;
+    box-shadow: 1px 1px 3px 0px;
     border: none;
 }
 
@@ -109,6 +112,7 @@
     flex-direction: column;
     border-radius: 5px;
     background-color: white;
+    opacity: 0.9;
     gap: 10px;
     box-shadow: 0px 2px 3px 0px;
     margin: 0;
@@ -126,9 +130,11 @@
     gap: 10px;
     flex-direction: column;
     background-color: white;
+    opacity: 0.9;
     box-shadow: 0px 2px 3px 0px;
     margin: 0;
     padding: 0;
+    align-items: center;
 
    
 }
@@ -136,7 +142,7 @@
 .textValor{
     color: black;
     margin: 5px;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 15px;
     font-family:  sans-serif;
     letter-spacing: 2px;
@@ -158,6 +164,9 @@
 
 .areadados{
     gap: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .areaEmail{
@@ -175,6 +184,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     letter-spacing: 0.1em;
     color: black;
+    opacity: 0.5;
     font-size: 15px;
    
 }
@@ -204,8 +214,8 @@
 .textTipo{
     color: black;
     letter-spacing: 5px;
-    font-weight: 700;
-    font-size: 30px;
+    font-weight: 500;
+    font-size: 25px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -213,34 +223,6 @@
     background-color: red;
     
   
-}
-
-.areabntOcultar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.bntOcultar{
-    border: none;
-    width: 100%;
-    padding: 5px;
-    height: 33px;
-    border-radius: 5px;
-    transition: 500ms;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    cursor: pointer;
-    transition: 500ms;
-    font-weight: 700;
-    
-}
-
-.bntOcultar:hover{
-    background-color: blue;
-    color: white;
 }
 
 @media (max-width: 890px) {
@@ -295,9 +277,5 @@
     .bntSair{
         width: 30%;
         background-color: blue;
-    }
-    .bntOcultar:hover{
-        background-color: blue;
-        color: white;
     }
 }
