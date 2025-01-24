@@ -48,7 +48,7 @@ export default function Home() {
       const response = await addDoc(collection(db, "gastos"), {
         valor: dados,
         uid: user.user.uid,
-       
+
       });
       setDados("");
       toast.success("Adicionado com sucesso!");
@@ -100,6 +100,7 @@ export default function Home() {
 
     Gastos();
   }, [Deletar, DeletarGastos]);
+
 
   async function Sair() {
     LogOut();
@@ -157,23 +158,13 @@ export default function Home() {
             </button>
           </div>
 
-          
+
         </div>
-        
-        {/* <div className="areabntOcultar">
-        {show ? (
-          <button className="bntOcultar" onClick={() => setShow(false)}>
-            Esconder lista
-          </button>
-        ) : (
-          <button className="bntOcultar" onClick={() => setShow(true)}>
-            Mostrar lista
-          </button>
-        )}
-      </div> */}
+
+
       </div>
 
-      
+
 
       {!!show && (
         <div className="areaRenderDados">
