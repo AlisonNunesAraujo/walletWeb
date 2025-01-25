@@ -15,7 +15,7 @@ const schema = z.object({
   senha: z
     .string()
     .nonempty("O campo é obrigatório")
-    .min(3, "A senha deve ter ao menos 3 numeros"),
+    .min(3, "A senha deve ter ao menos 3 numeros ou 3 letras"),
 });
 
 export default function Register() {
