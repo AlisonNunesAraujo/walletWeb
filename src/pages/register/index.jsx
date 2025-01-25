@@ -1,57 +1,68 @@
 import { Link } from "react-router-dom";
 import "./style.css";
 
-import { useRef } from "react";
+
 import { useContext } from "react";
-import { useState } from "react";
 import { AuthContext } from "../../context";
-import { toast } from "react-toastify";
+
+import { useForm } from "react-hook-form";
+
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  email: z.string().nonempty("O campo é obrigatório"),
+  senha: z
+    .string()
+    .nonempty("O campo é obrigatório")
+    .min(3, "A senha deve ter ao menos 3 numeros"),
+});
 
 export default function Register() {
-  const { RegisterUser,loading } = useContext(AuthContext);
+  const { RegisterUser, loading } = useContext(AuthContext);
 
-  
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
 
-  function Hendle(e) {
-    e.preventDefault();
-    if ((email === "") | (senha === "")) {
-      toast.error("O campo é obrigatório");
-      return;
-    }
-    RegisterUser(email, senha,);
+  function Register(data) {
+    RegisterUser(data);
   }
 
   return (
     <div className="cont">
-      <form className="form">
+      <form className="form" onClick={handleSubmit(Register)}>
         <h1 className="TitleRegister">Faça seu registro</h1>
 
         <input
           placeholder="E-Mail"
           className="inputs"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          {...register("email")}
+          id="email"
         />
+        <p>{errors.email?.message}</p>
         <input
           placeholder="Senha"
           className="inputs"
           type="password"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          {...register("senha")}
+          id="senha"
         />
-        
-        { loading ? (
-          <button className="bnt" onClick={(e) => Hendle(e)}>
-          Criando...
-        </button>
-        ) : (
-          <button className="bnt" onClick={(e) => Hendle(e)}>
-          Criar
-        </button>
-        ) }
+        <p>{errors.senha?.message}</p>
 
+        {loading ? (
+          <button className="bnt" type="submit">
+            Criando...
+          </button>
+        ) : (
+          <button className="bnt" type="submit">
+            Criar
+          </button>
+        )}
 
         <Link to="/" className="bntVoltar">
           Voltar

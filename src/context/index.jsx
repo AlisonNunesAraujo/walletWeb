@@ -7,48 +7,49 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { data, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export function Context({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-  useEffect(()=>{
-  async function VerUser(){
-    try{
-      const user =  localStorage.getItem('@user')
-      if(user){
-        setUser(JSON.parse('@user'))
+  useEffect(() => {
+    async function VerUser() {
+      try {
+        const user = localStorage.getItem('@user')
+        if (user) {
+          setUser(JSON.parse('@user'))
+        }
+        return;
       }
-      return;
-     }
-     catch{
-      setUser(null)
-     }
-   }
-   VerUser();
-    
-    
-  },[])
-  
-  async function LoadUser(user) {
-     localStorage.setItem('@user', JSON.stringify(user))
-  }
-  
+      catch {
+        setUser(null)
+      }
+    }
+    VerUser();
 
-  async function RegisterUser(email, senha) {
+
+  }, [])
+
+  async function LoadUser(user) {
+    localStorage.setItem('@user', JSON.stringify(user))
+  }
+
+
+  async function RegisterUser(data) {
     setLoading(true)
     try {
-      const data = await createUserWithEmailAndPassword(auth, email, senha);
+      const { email, senha } = data;
+      const response = await createUserWithEmailAndPassword(auth, email, senha);
 
       toast.success("Conta craida com sucesso!");
       navigate("/Home");
 
       setLoading(false)
-      await LoadUser(data.user);
+      await LoadUser(response.user);
     } catch (err) {
       setLoading(false)
       toast.error("Tente Novamente");
@@ -57,13 +58,14 @@ export function Context({ children }) {
 
 
 
-  async function LogarUser(email, senha) {
+  async function LogarUser(data) {
     setLoading(true)
     try {
-      const data = await signInWithEmailAndPassword(auth, email, senha);
+      const { email, senha } = data;
+      const response = await signInWithEmailAndPassword(auth, email, senha);
       toast.success("Bem Vindo!");
-      setUser(data);
-      await LoadUser(data.user);
+      setUser(response);
+      await LoadUser(response.user);
       setLoading(false)
       navigate("/Home");
     } catch (err) {
@@ -85,7 +87,7 @@ export function Context({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut,loading }}
+      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut, loading }}
     >
       {children}
     </AuthContext.Provider>

@@ -5,55 +5,63 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context";
 import { toast } from "react-toastify";
 
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  email: z.string().nonempty("O campo é obrigatório").email(),
+  senha: z
+    .string()
+    .nonempty("O campo é obrigatório")
+    .min(3, "A senha deve ter ao menos 3 numeros"),
+});
+
 export default function Login() {
-  const { LogarUser,loading } = useContext(AuthContext);
+  const { LogarUser, loading } = useContext(AuthContext);
 
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
 
-
-
-  function Hendle(e) {
-    e.preventDefault();
-    if ((email === "") | (senha === "")) {
-      toast.error("O campo é obrigatório");
-      return;
-    }
-
-    LogarUser(email, senha);
+  function Hendle(data) {
+    LogarUser(data);
   }
 
   return (
     <div className="grupo">
-      <form className="form">
-        <h1 className="Title">Entrar</h1>
+      <form className="form" onSubmit={handleSubmit(Hendle)}>
+        <h1 className="Title">Entre na sua conta!</h1>
         <input
           placeholder="E-Mail"
           className="inputs"
           type="email"
-         
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          {...register("email")}
+          id="email"
         />
+        <p>{errors.email?.message}</p>
         <input
           placeholder="Senha"
           className="inputs"
           type="password"
-          
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          {...register("senha")}
+          id="senha"
         />
-        
-        { loading ? (
-          <button className="bnt" onClick={(e) => Hendle(e)}>
-          Carregando...
-        </button>
-        ): (
-          <button className="bnt" onClick={(e) => Hendle(e)}>
-          Entrar
-        </button>
-        )}
+        <p>{errors.senha?.message}</p>
 
+        {loading ? (
+          <button className="bnt" type="submit">
+            Carregando...
+          </button>
+        ) : (
+          <button className="bnt" type="submit">
+            Entrar
+          </button>
+        )}
 
         <Link to="/Register" className="bntCriar">
           Criar conta!
