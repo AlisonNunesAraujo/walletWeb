@@ -5,55 +5,52 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context";
 import { toast } from "react-toastify";
 
+import { useForm } from "react-hook-form";
+
 export default function Login() {
-  const { LogarUser,loading } = useContext(AuthContext);
+  const { LogarUser, loading } = useContext(AuthContext);
 
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [senha, setSenha] = useState("");
 
+  const { register, handleSubmit } = useForm();
 
+  function Hendle(data) {
+    // if (data.email === "") | (data.senha === "") {
+    //   toast.error("O campo é obrigatório");
+    //   return;
+    // }
 
-  function Hendle(e) {
-    e.preventDefault();
-    if ((email === "") | (senha === "")) {
-      toast.error("O campo é obrigatório");
-      return;
-    }
-
-    LogarUser(email, senha);
+    LogarUser(data.email, data.senha);
+    console.log(data);
   }
 
   return (
     <div className="grupo">
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit(Hendle)}>
         <h1 className="Title">Entrar</h1>
         <input
           placeholder="E-Mail"
           className="inputs"
           type="email"
-         
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          {...register("email")}
+          id="email"
         />
         <input
           placeholder="Senha"
           className="inputs"
           type="password"
-          
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          {...register("senha")}
+          id="senha"
         />
-        
-        { loading ? (
-          <button className="bnt" onClick={(e) => Hendle(e)}>
-          Carregando...
-        </button>
-        ): (
-          <button className="bnt" onClick={(e) => Hendle(e)}>
-          Entrar
-        </button>
-        )}
 
+        {loading ? (
+          <button className="bnt">Carregando...</button>
+        ) : (
+          <button className="bnt" type="submit">
+            Entrar
+          </button>
+        )}
 
         <Link to="/Register" className="bntCriar">
           Criar conta!

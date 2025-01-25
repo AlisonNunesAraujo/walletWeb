@@ -14,61 +14,55 @@ export function Context({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
-  useEffect(()=>{
-  async function VerUser(){
-    try{
-      const user =  localStorage.getItem('@user')
-      if(user){
-        setUser(JSON.parse('@user'))
+  useEffect(() => {
+    async function VerUser() {
+      try {
+        const user = localStorage.getItem("@user");
+        if (user) {
+          setUser(JSON.parse("@user"));
+        }
+        return;
+      } catch {
+        setUser(null);
       }
-      return;
-     }
-     catch{
-      setUser(null)
-     }
-   }
-   VerUser();
-    
-    
-  },[])
-  
+    }
+    VerUser();
+  }, []);
+
   async function LoadUser(user) {
-     localStorage.setItem('@user', JSON.stringify(user))
+    localStorage.setItem("@user", JSON.stringify(user));
   }
-  
 
   async function RegisterUser(email, senha) {
-    setLoading(true)
+    setLoading(true);
     try {
       const data = await createUserWithEmailAndPassword(auth, email, senha);
 
       toast.success("Conta craida com sucesso!");
       navigate("/Home");
 
-      setLoading(false)
+      setLoading(false);
       await LoadUser(data.user);
     } catch (err) {
-      setLoading(false)
+      setLoading(false);
       toast.error("Tente Novamente");
     }
   }
 
-
-
   async function LogarUser(email, senha) {
-    setLoading(true)
+    setLoading(true);
     try {
       const data = await signInWithEmailAndPassword(auth, email, senha);
       toast.success("Bem Vindo!");
       setUser(data);
       await LoadUser(data.user);
-      setLoading(false)
+      setLoading(false);
       navigate("/Home");
     } catch (err) {
       toast.error("Tente novamente!");
-      setLoading(false)
+      setLoading(false);
     }
   }
 
@@ -85,7 +79,7 @@ export function Context({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut,loading }}
+      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut, loading }}
     >
       {children}
     </AuthContext.Provider>
