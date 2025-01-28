@@ -60,6 +60,7 @@
 
 @media (max-width: 790px) {
   .grupo {
+    width: 100%;
     justify-content: center;
     align-items: center;
   }

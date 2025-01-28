@@ -137,9 +137,7 @@ export default function Home() {
         <div className="areaEmail">
           <h3 className="textEmail">E-Mail: {user.user.email}</h3>
 
-          <button className="bntSair" onClick={Sair}>
-            Sair da Conta!
-          </button>
+
         </div>
         <div className="areaInput">
           <input
@@ -166,36 +164,43 @@ export default function Home() {
 
 
 
-      {!!show && (
-        <div className="areaRenderDados">
-          <div className="areaRenderReceita">
-            <h2 className="textTipo">Receita</h2>
-            {data.map((item) => (
-              <div key={item} className="areadados">
-                <p className="textValor">R${item.valor}</p>
-                <button className="bntExcluir" onClick={() => Deletar(item.id)}>
-                  Excluir
-                </button>
-              </div>
-            ))}
-          </div>
 
-          <div className="areaRenderGastos">
-            <h2 className="textTipo">Gastos</h2>
-            {gastos.map((item) => (
-              <div className="areadados">
-                <p className="textValor">R${item.valor}</p>
-                <button
-                  className="bntExcluir"
-                  onClick={() => DeletarGastos(item.id)}
-                >
-                  Excluir
-                </button>
-              </div>
-            ))}
-          </div>
+      <div className="areaRenderDados">
+        <div className="areaRenderReceita">
+          <h2 className="textTipo">Receita</h2>
+          {data.map((item) => (
+            <div key={item} className="areadados">
+              <p className="textValor">R${item.valor}</p>
+              <button className="bntExcluir" onClick={() => Deletar(item.id)}>
+                Excluir
+              </button>
+            </div>
+          ))}
         </div>
-      )}
+
+        <div className="areaRenderGastos">
+          <h2 className="textTipo">Gastos</h2>
+          {gastos.map((item) => (
+            <div className="areadados">
+              <p className="textValor">R${item.valor}</p>
+              <button
+                className="bntExcluir"
+                onClick={() => DeletarGastos(item.id)}
+              >
+                Excluir
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div>
+          <button className="bntSair" onClick={Sair}>
+            Sair da Conta!
+          </button>
+        </div>
+      </div>
+
+
     </div>
   );
 }

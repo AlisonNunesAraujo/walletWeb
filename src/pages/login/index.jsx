@@ -3,8 +3,6 @@ import "./style.css";
 
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context";
-import { toast } from "react-toastify";
-
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
