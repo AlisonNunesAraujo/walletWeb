@@ -137,7 +137,9 @@ export default function Home() {
         <div className="areaEmail">
           <h3 className="textEmail">E-Mail: {user.user.email}</h3>
 
-
+          <button className="bntSair" onClick={Sair}>
+            Sair da Conta!
+          </button>
         </div>
         <div className="areaInput">
           <input
@@ -192,14 +194,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-
-        <div>
-          <button className="bntSair" onClick={Sair}>
-            Sair da Conta!
-          </button>
-        </div>
       </div>
-
 
     </div>
   );
