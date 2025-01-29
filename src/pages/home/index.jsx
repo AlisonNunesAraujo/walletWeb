@@ -10,7 +10,7 @@ import { deleteDoc } from "firebase/firestore";
 import { AuthContext } from "../../context";
 import { useContext } from "react";
 
-import { Link } from "react-router-dom";
+import { CotacaoComponente } from "../CotacaoComponente";
 import { useNavigate } from "react-router-dom";
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
@@ -190,10 +190,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="areaDolar">
-        <h2>Ver cotação em tempo real</h2>
-        <button onClick={() => navigation("/Dolar")}>Ver Cotação</button>
-      </div>
+      <CotacaoComponente />
+
     </div>
   );
 }
