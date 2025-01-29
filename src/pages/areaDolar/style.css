@@ -55,11 +55,22 @@
 }
 
 @media (max-width: 890px) {
+  .areaRenderDolar {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    background: #ccc;
+    align-items: center;
+  }
   .areaRenderDolar div {
     width: 40%;
   }
   .areaRenderDolar h2 {
     font-size: 17px;
+    margin-top: 50px;
+    color: #563838;
+    font-weight: bold;
   }
   .areaRenderDolar div h4 {
     font-size: 12px;
