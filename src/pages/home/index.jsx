@@ -10,6 +10,8 @@ import { deleteDoc } from "firebase/firestore";
 import { AuthContext } from "../../context";
 import { useContext } from "react";
 
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
 
@@ -17,6 +19,7 @@ export default function Home() {
   const [dados, setDados] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
+  const navigation = useNavigate();
 
   async function AddReceita(e) {
     e.preventDefault();
@@ -48,7 +51,6 @@ export default function Home() {
       const response = await addDoc(collection(db, "gastos"), {
         valor: dados,
         uid: user.user.uid,
-
       });
       setDados("");
       toast.success("Adicionado com sucesso!");
@@ -100,7 +102,6 @@ export default function Home() {
 
     Gastos();
   }, [Deletar, DeletarGastos]);
-
 
   async function Sair() {
     LogOut();
@@ -157,15 +158,8 @@ export default function Home() {
               Gastos
             </button>
           </div>
-
-
         </div>
-
-
       </div>
-
-
-
 
       <div className="areaRenderDados">
         <div className="areaRenderReceita">
@@ -196,6 +190,10 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="areaDolar">
+        <h2>Ver cotação em tempo real</h2>
+        <button onClick={() => navigation("/Dolar")}>Ver Cotação</button>
+      </div>
     </div>
   );
 }
