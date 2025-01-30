@@ -240,6 +240,7 @@
   .areaRenderDados {
     width: 100%;
     height: auto;
+    margin-bottom: 100px;
   }
 
   .areaRenderReceita {

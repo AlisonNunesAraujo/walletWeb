@@ -161,6 +161,7 @@ export default function Home() {
 
 
       </div>
+      <CotacaoComponente />
 
       <div className="areaRenderDados">
         <div className="areaRenderReceita">
@@ -191,8 +192,6 @@ export default function Home() {
         </div>
       </div>
 
-
-      <CotacaoComponente />
 
     </div>
   );
