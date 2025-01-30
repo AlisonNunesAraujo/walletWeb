@@ -15,7 +15,6 @@ import { useNavigate } from "react-router-dom";
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
 
-  const [show, setShow] = useState(true);
   const [dados, setDados] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
@@ -159,6 +158,8 @@ export default function Home() {
             </button>
           </div>
         </div>
+
+
       </div>
 
       <div className="areaRenderDados">
@@ -189,6 +190,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+
 
       <CotacaoComponente />
 
