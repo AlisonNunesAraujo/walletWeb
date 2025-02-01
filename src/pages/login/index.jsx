@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "./style.css";
 
-import { useContext, useRef, useState } from "react";
+
+
+
+import { useContext } from "react";
 import { AuthContext } from "../../context";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -12,7 +15,7 @@ const schema = z.object({
   senha: z
     .string()
     .nonempty("O campo é obrigatório")
-    .min(3, "A senha deve ter ao menos 3 numeros ou 3 letras"),
+    .min(3, "A senha deve ter ao menos 6 numeros ou 6 letras"),
 });
 
 export default function Login() {
