@@ -14,13 +14,9 @@ import { CotacaoComponente } from "../CotacaoComponente";
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
 
-
-  const [desc, setDesc] = useState("");
   const [dados, setDados] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
-
-
 
   async function AddReceita(e) {
     e.preventDefault();
@@ -52,10 +48,11 @@ export default function Home() {
     try {
       const response = await addDoc(collection(db, "gastos"), {
         valor: dados,
-        descricao: desc,
+
         uid: user.user.uid,
       });
       setDados("");
+      setDesc("");
       toast.success("Adicionado com sucesso!");
     } catch (e) {
       toast.error("Algo deu errado!");
@@ -73,7 +70,6 @@ export default function Home() {
         snapshot.forEach((doc) => {
           lista.push({
             id: doc.id,
-            descricao: descricao,
             valor: doc.data().valor,
           });
         });
@@ -98,7 +94,6 @@ export default function Home() {
             valor: doc.data().valor,
           });
         });
-        console.log(lista);
 
         setGastos(lista);
       });
@@ -154,13 +149,6 @@ export default function Home() {
             value={dados}
             onChange={(e) => setDados(e.target.value)}
           />
-          <input
-            className="input"
-            placeholder="Descrição"
-            type="text"
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
-          />
           <div className="areaBnts">
             <button className="bntAdd" onClick={(e) => AddReceita(e)}>
               Entrada
@@ -179,7 +167,7 @@ export default function Home() {
           {data.map((item) => (
             <div key={item} className="areadados">
               <p className="textValor">R${item.valor}</p>
-              <p>{item.descricao}</p>
+
               <button className="bntExcluir" onClick={() => Deletar(item.id)}>
                 Excluir
               </button>
@@ -192,7 +180,7 @@ export default function Home() {
           {gastos.map((item) => (
             <div className="areadados">
               <p className="textValor">R${item.valor}</p>
-              <p>{item.descricao}</p>
+
               <button
                 className="bntExcluir"
                 onClick={() => DeletarGastos(item.id)}
