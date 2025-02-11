@@ -1,7 +1,7 @@
 .areaDolar {
   width: 20%;
   height: 90px;
-  background-color: rgb(72, 65, 65);
+  background-color: white;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -15,7 +15,7 @@
 .areaDolar h2 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  color: white;
+  color: black;
   font-size: 19px;
   margin: 10px;
 }
@@ -26,7 +26,7 @@
   border: none;
   border-radius: 5px;
   transition: 500ms;
-  background-color: rgba(50, 50, 50, 0.959);
+  background-color: black;
   color: white;
   font-weight: 600;
   cursor: pointer;
@@ -36,9 +36,12 @@
   .areaDolar {
     width: 80%;
     height: auto;
-    background-color: rgb(125, 124, 124);
+    background-color: white;
     box-shadow: 0px 2px 3px 0px;
     margin-left: 10%;
     margin-left: 10%;
+  }
+  .areaDolar button {
+    margin-bottom: 10px;
   }
 }
