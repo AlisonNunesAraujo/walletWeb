@@ -17,6 +17,7 @@ export default function Home() {
   const [dados, setDados] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
+  const [isActive, setIsActive] = useState(false)
 
   async function AddReceita(e) {
     e.preventDefault();
@@ -140,6 +141,7 @@ export default function Home() {
           <button className="bntSair" onClick={Sair}>
             Sair da Conta!
           </button>
+
         </div>
         <div className="areaInput">
           <input
@@ -158,39 +160,45 @@ export default function Home() {
             </button>
           </div>
         </div>
+
+        <button onClick={() => setIsActive(!isActive)} className="bntMostrarList">Mostrar lista!</button>
       </div>
       <CotacaoComponente />
 
-      <div className="areaRenderDados">
-        <div className="areaRenderReceita">
-          <h2 className="textTipo">Receita</h2>
-          {data.map((item) => (
-            <div key={item} className="areadados">
-              <p className="textValor">R${item.valor}</p>
+      {isActive ? (
+        <div className="areaRenderDados">
+          <div className="areaRenderReceita">
+            <h2 className="textTipo">Receita</h2>
+            {data.map((item) => (
+              <div key={item} className="areadados">
+                <p className="textValor">R${item.valor}</p>
 
-              <button className="bntExcluir" onClick={() => Deletar(item.id)}>
-                Excluir
-              </button>
-            </div>
-          ))}
+                <button className="bntExcluir" onClick={() => Deletar(item.id)}>
+                  Excluir
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="areaRenderGastos">
+            <h2 className="textTipo">Gastos</h2>
+            {gastos.map((item) => (
+              <div className="areadados">
+                <p className="textValor">R${item.valor}</p>
+
+                <button
+                  className="bntExcluir"
+                  onClick={() => DeletarGastos(item.id)}
+                >
+                  Excluir
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
-
-        <div className="areaRenderGastos">
-          <h2 className="textTipo">Gastos</h2>
-          {gastos.map((item) => (
-            <div className="areadados">
-              <p className="textValor">R${item.valor}</p>
-
-              <button
-                className="bntExcluir"
-                onClick={() => DeletarGastos(item.id)}
-              >
-                Excluir
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
