@@ -34,9 +34,6 @@ export function Context({ children }) {
 
   }, [])
 
-  async function LoadUser(user) {
-    localStorage.setItem('@user', JSON.stringify(user))
-  }
 
 
   async function RegisterUser(data) {
@@ -49,7 +46,6 @@ export function Context({ children }) {
       navigate("/Home");
 
       setLoading(false)
-      await LoadUser(response.user);
     } catch (err) {
       setLoading(false)
       toast.error("Tente Novamente");
@@ -65,9 +61,10 @@ export function Context({ children }) {
       const response = await signInWithEmailAndPassword(auth, email, senha);
       toast.success("Bem Vindo!");
       setUser(response);
-      await LoadUser(response.user);
       setLoading(false)
       navigate("/Home");
+      localStorage.setItem('@user', JSON.stringify(response.user))
+
     } catch (err) {
       toast.error("Tente novamente!");
       setLoading(false)

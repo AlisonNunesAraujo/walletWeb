@@ -17,7 +17,7 @@ export default function Home() {
   const [dados, setDados] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(false);
 
   async function AddReceita(e) {
     e.preventDefault();
@@ -141,7 +141,6 @@ export default function Home() {
           <button className="bntSair" onClick={Sair}>
             Sair da Conta!
           </button>
-
         </div>
         <div className="areaInput">
           <input
@@ -161,7 +160,22 @@ export default function Home() {
           </div>
         </div>
 
-        <button onClick={() => setIsActive(!isActive)} className="bntMostrarList">Mostrar lista!</button>
+        {isActive ? (
+
+          <button
+            onClick={() => setIsActive(!isActive)}
+            className="bntMostrarList"
+          >
+            Ocultar lista!
+          </button>
+        ) : (
+          <button
+            onClick={() => setIsActive(!isActive)}
+            className="bntMostrarList"
+          >
+            Mostrar lista!
+          </button>
+        )}
       </div>
       <CotacaoComponente />
 
