@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import './style.css'
 export default function Dolar() {
 
-    const [dadosApi, setDadosApi] = useState<any[]>([])
+    const [dadosApi, setDadosApi] = useState([])
     const navigation = useNavigate();
 
     useEffect(() => {

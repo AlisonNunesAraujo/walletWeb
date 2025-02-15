@@ -10,7 +10,6 @@ import { deleteDoc } from "firebase/firestore";
 import { AuthContext } from "../../context";
 import { useContext } from "react";
 
-import { CotacaoComponente } from "../../Componentes/CotacaoComponente";
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
 
@@ -29,7 +28,6 @@ export default function Home() {
     try {
       const response = await addDoc(collection(db, "receita"), {
         valor: dados,
-        descricao: desc,
         uid: user.user.uid,
       });
       setDados("");
@@ -177,7 +175,7 @@ export default function Home() {
           </button>
         )}
       </div>
-      <CotacaoComponente />
+
 
       {isActive ? (
         <div className="areaRenderDados">

@@ -4,7 +4,7 @@ import Home from "../pages/home";
 import Login from "../pages/login";
 import Register from "../pages/register";
 import Private from "./private";
-import Dolar from "../Componentes/areaDolar";
+import Dolar from "../pages/areaDolar";
 import PageNotFaund from "../pages/PageNotFaund";
 
 export function Routs() {
