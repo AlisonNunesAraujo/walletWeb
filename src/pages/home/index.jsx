@@ -10,7 +10,7 @@ import { deleteDoc } from "firebase/firestore";
 import { AuthContext } from "../../context";
 import { useContext } from "react";
 
-import { CotacaoComponente } from "../CotacaoComponente";
+import { CotacaoComponente } from "../../Componentes/CotacaoComponente";
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
 
