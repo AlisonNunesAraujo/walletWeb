@@ -1,6 +1,6 @@
 .conteiner {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   background-color: #242424;
   display: flex;
   flex-direction: row;
@@ -225,7 +225,7 @@
 @media (max-width: 890px) {
   .conteiner {
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     background-color: white;
