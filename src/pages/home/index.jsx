@@ -157,6 +157,7 @@ export default function Home() {
             className="input"
             placeholder="Descrição"
             type="text"
+
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
