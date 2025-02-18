@@ -22,7 +22,7 @@ export default function Home() {
 
   async function AddReceita(e) {
     e.preventDefault();
-    if (dados === "") {
+    if (dados === "" || desc === "") {
       toast.error("O campo deve ser preenchido!");
       return;
     }
@@ -42,7 +42,7 @@ export default function Home() {
 
   async function AddGastos(e) {
     e.preventDefault();
-    if (dados === "") {
+    if (dados === "" || desc === "") {
       toast.error("O campo deve ser preenchido!");
       return;
     }
@@ -157,7 +157,7 @@ export default function Home() {
             className="input"
             placeholder="Descrição"
             type="text"
-
+            maxLength={20}
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
           />
