@@ -1,7 +1,7 @@
 .conteiner {
   width: 100%;
   height: 100dvh;
-  background-color: #242424;
+  background-color: #c7c3c3;
   display: flex;
   flex-direction: row;
 }
@@ -27,9 +27,9 @@
   margin-bottom: 20px;
 }
 .areaInput {
-  width: 90%;
-  height: 130px;
-  background-color: white;
+  width: 100%;
+  height: "auto";
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,12 +38,11 @@
 }
 
 .input {
-  width: 100%;
-  height: 30px;
+  width: 80%;
   outline: none;
   border-radius: 5px;
-  margin-top: 40px;
-  padding: 5px;
+  margin-top: 20px;
+  padding: 10px;
   box-shadow: 1px 1px 3px 0px;
   border: none;
 }
@@ -203,7 +202,7 @@
 .textTipo {
   color: black;
   letter-spacing: 5px;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 25px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
