@@ -34,6 +34,7 @@ export default function Home() {
         uid: user.user.uid,
       });
       setDados("");
+      setDesc("")
       toast.success("Adicionado com sucesso!");
     } catch (e) {
       alert(err);
@@ -174,19 +175,23 @@ export default function Home() {
 
         {isActive ? (
 
-          <button
-            onClick={() => setIsActive(!isActive)}
-            className="bntMostrarList"
-          >
-            Ocultar lista!
-          </button>
+          <div className="areabntMostrarlist">
+            <button
+              onClick={() => setIsActive(!isActive)}
+              className="bntMostrarList"
+            >
+              Ocultar lista!
+            </button>
+          </div>
         ) : (
-          <button
-            onClick={() => setIsActive(!isActive)}
-            className="bntMostrarList"
-          >
-            Mostrar lista!
-          </button>
+          <div className="areabntMostrarlist">
+            <button
+              onClick={() => setIsActive(!isActive)}
+              className="bntMostrarList"
+            >
+              Mostrar lista!
+            </button>
+          </div>
         )}
       </div>
 

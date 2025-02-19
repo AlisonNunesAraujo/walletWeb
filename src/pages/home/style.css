@@ -159,7 +159,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #ccc;
   border-radius: 5px;
 }
 
@@ -217,7 +216,7 @@
 }
 
 .bntMostrarList {
-  width: 50%;
+  width: 100%;
   padding: 7px;
   background-color: "#ccc";
   margin-top: 20px;
@@ -238,6 +237,9 @@
     font-size: 24px;
     margin-top: 25px;
   }
+  .areaEmail {
+    margin-bottom: 20px;
+  }
   .textEmail {
     font-family: Arial, Helvetica, sans-serif;
   }
@@ -245,7 +247,17 @@
     width: 100%;
     height: 30vh;
     box-shadow: 0px 0px 0px;
+    margin-bottom: 50px;
   }
+  .areabntMostrarlist {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
   .areaInput {
     width: 80%;
     height: 15vh;
@@ -253,8 +265,18 @@
 
   .areaRenderDados {
     width: 100%;
-    height: auto;
-    margin-bottom: 100px;
+    height: 50vh;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  .bntMostrarList {
+    width: 50%;
+    padding: 7px;
+    background-color: "#ccc";
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
   }
 
   .areaRenderReceita {
