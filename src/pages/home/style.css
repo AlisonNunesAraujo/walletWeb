@@ -97,7 +97,7 @@
 
 .areaRenderReceita {
   width: 30%;
-  height: 80vh;
+  height: 60vh;
   overflow-y: auto;
   display: flex;
   align-items: center;
@@ -113,7 +113,7 @@
 
 .areaRenderGastos {
   width: 30%;
-  height: 80vh;
+  height: 60vh;
   overflow-y: auto;
   border-radius: 5px;
   display: flex;
@@ -127,7 +127,17 @@
   padding: 0;
   align-items: center;
 }
+.infoBntMostrarLista {
+  width: 75%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.infoBntMostrarLista h3 {
+  font-family: sans-serif;
+}
 .textValor {
   color: black;
   margin: 5px;
@@ -296,5 +306,17 @@
   .bntSair {
     width: 30%;
     background-color: rgb(61, 61, 61);
+  }
+  .infoBntMostrarLista {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .infoBntMostrarLista h3 {
+    font-family: sans-serif;
+    font-size: 10px;
   }
 }

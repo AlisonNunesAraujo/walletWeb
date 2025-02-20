@@ -229,7 +229,9 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        <div></div>
+        <div className="infoBntMostrarLista">
+          <h3>Aperte no botão "Mostrar Lista" para exibir os registros</h3>
+        </div>
       )}
     </div>
   );
