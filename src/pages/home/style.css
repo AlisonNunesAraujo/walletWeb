@@ -228,7 +228,8 @@
 .bntMostrarList {
   width: 100%;
   padding: 7px;
-  background-color: "#ccc";
+  background-color: blue;
+  color: white;
   margin-top: 20px;
   border-radius: 5px;
   border: none;
@@ -282,7 +283,8 @@
   .bntMostrarList {
     width: 50%;
     padding: 7px;
-    background-color: "#ccc";
+    background-color: blue;
+    color: white;
     border-radius: 5px;
     border: none;
     cursor: pointer;
