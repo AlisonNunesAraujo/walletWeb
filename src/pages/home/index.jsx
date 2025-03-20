@@ -15,7 +15,6 @@ export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
 
   const [dados, setDados] = useState("");
-  const [desc, setDesc] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
   const [isActive, setIsActive] = useState(false);
@@ -30,7 +29,6 @@ export default function Home() {
     try {
       const response = await addDoc(collection(db, "receita"), {
         valor: dados,
-        descricao: desc,
         uid: user.user.uid,
       });
       setDados("");
@@ -51,7 +49,6 @@ export default function Home() {
     try {
       const response = await addDoc(collection(db, "gastos"), {
         valor: dados,
-        descricao: desc,
         uid: user.user.uid,
       });
       setDados("");
@@ -66,7 +63,9 @@ export default function Home() {
     async function Push() {
       const uid = user.user.uid;
       const ref = collection(db, "receita");
+
       const receitaQuery = query(ref, where("uid", "==", uid));
+
       getDocs(receitaQuery).then((snapshot) => {
         let lista = [];
 
@@ -74,7 +73,6 @@ export default function Home() {
           lista.push({
             id: doc.id,
             valor: doc.data().valor,
-            descricao: doc.data().descricao
           });
         });
 
@@ -96,7 +94,6 @@ export default function Home() {
           lista.push({
             id: doc.id,
             valor: doc.data().valor,
-            descricao: doc.data().descricao
           });
         });
 
@@ -153,14 +150,6 @@ export default function Home() {
             type="number"
             value={dados}
             onChange={(e) => setDados(e.target.value)}
-          />
-          <input
-            className="input"
-            placeholder="Descrição"
-            type="text"
-            maxLength={20}
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
           />
 
           <div className="areaBnts">
