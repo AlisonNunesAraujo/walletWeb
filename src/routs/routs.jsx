@@ -5,6 +5,7 @@ import Login from "../pages/login";
 import Register from "../pages/register";
 import Private from "./private";
 import PageNotFaund from "../pages/PageNotFaund";
+import Wellcome from "../pages/Wellcome";
 
 export function Routs() {
   return (
@@ -19,8 +20,8 @@ export function Routs() {
       />
 
 
-
-      <Route path="/" element={<Login />} />
+        <Route path="/" element={<Wellcome />} />
+      <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={<Register />} />
 
       <Route path="*" element={<PageNotFaund />} />
