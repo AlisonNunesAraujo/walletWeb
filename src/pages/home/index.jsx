@@ -21,10 +21,11 @@ export default function Home() {
 
   async function AddReceita(e) {
     e.preventDefault();
-    if (dados === "" || desc === "") {
+    if (dados === "") {
       toast.error("O campo deve ser preenchido!");
       return;
     }
+   
 
     try {
       const response = await addDoc(collection(db, "receita"), {
@@ -41,7 +42,7 @@ export default function Home() {
 
   async function AddGastos(e) {
     e.preventDefault();
-    if (dados === "" || desc === "") {
+    if (dados === "") {
       toast.error("O campo deve ser preenchido!");
       return;
     }
@@ -54,7 +55,7 @@ export default function Home() {
       setDados("");
       setDesc("");
       toast.success("Adicionado com sucesso!");
-    } catch (e) {
+    } catch (err) {
       toast.error("Algo deu errado!");
     }
   }
@@ -191,8 +192,8 @@ export default function Home() {
             <h2 className="textTipo">Receita</h2>
             {data.map((item) => (
               <div key={item} className="areadados">
-                <p className="textValor">R${item.valor}</p>
-                <p>{item.descricao}</p>
+                <p className="textValor">R$ {item.valor}</p>
+              
                 <button className="bntExcluir" onClick={() => Deletar(item.id)}>
                   Excluir
                 </button>
