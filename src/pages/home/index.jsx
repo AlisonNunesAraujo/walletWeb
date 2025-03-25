@@ -19,44 +19,49 @@ export default function Home() {
   const [gastos, setGastos] = useState([]);
   const [isActive, setIsActive] = useState(false);
 
+  
+  
+
   async function AddReceita(e) {
     e.preventDefault();
-    if (dados === "") {
-      toast.error("O campo deve ser preenchido!");
+  
+    if (!dados) {
+      toast.error("O valor da receita é obrigatório!");
       return;
     }
-   
-
+  
     try {
       const response = await addDoc(collection(db, "receita"), {
         valor: dados,
         uid: user.user.uid,
-      });
-      setDados("");
-      setDesc("")
-      toast.success("Adicionado com sucesso!");
-    } catch (e) {
-      alert(err);
+      }).then(()=>{
+        toast.success("Receita adicionada com sucesso!");
+        setDados("");
+      })
+     return;
+    } catch (error) {
+      console.error("Erro ao adicionar receita:", error);
+     
     }
   }
-
   async function AddGastos(e) {
     e.preventDefault();
-    if (dados === "") {
-      toast.error("O campo deve ser preenchido!");
+  
+    if (!dados) {
+      toast.error("O valor do gasto é obrigatório!");
       return;
     }
-
+  
     try {
       const response = await addDoc(collection(db, "gastos"), {
         valor: dados,
         uid: user.user.uid,
       });
       setDados("");
-      setDesc("");
-      toast.success("Adicionado com sucesso!");
+      toast.success("Gasto adicionado com sucesso!");
+      return;
     } catch (err) {
-      toast.error("Algo deu errado!");
+      toast.error("Ocorreu um erro: ");
     }
   }
 
@@ -136,7 +141,7 @@ export default function Home() {
   return (
     <div className="conteiner">
       <div className="area">
-        <h2 className="title">Bem Vindo!</h2>
+        <h2 className="title">Olá!</h2>
         <div className="areaEmail">
           <h3 className="textEmail">E-Mail: {user.user.email}</h3>
 

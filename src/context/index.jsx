@@ -14,30 +14,25 @@ export function Context({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function VerUser() {
       try {
-        const user = localStorage.getItem('@user')
+        const user = localStorage.getItem("@user");
         if (user) {
-          setUser(JSON.parse('@user'))
+          setUser(JSON.parse("@user"));
         }
         return;
-      }
-      catch {
-        setUser(null)
+      } catch {
+        setUser(null);
       }
     }
     VerUser();
-
-
-  }, [])
-
-
+  }, []);
 
   async function RegisterUser(data) {
-    setLoading(true)
+    setLoading(true);
     try {
       const { email, senha } = data;
       const response = await createUserWithEmailAndPassword(auth, email, senha);
@@ -45,29 +40,26 @@ export function Context({ children }) {
       toast.success("Conta craida com sucesso!");
       navigate("/Home");
 
-      setLoading(false)
+      setLoading(false);
     } catch (err) {
-      setLoading(false)
+      setLoading(false);
       toast.error("Tente Novamente");
     }
   }
 
-
-
   async function LogarUser(data) {
-    setLoading(true)
+    setLoading(true);
     try {
       const { email, senha } = data;
       const response = await signInWithEmailAndPassword(auth, email, senha);
       toast.success("Bem Vindo!");
       setUser(response);
-      setLoading(false)
+      setLoading(false);
       navigate("/Home");
-      localStorage.setItem('@user', JSON.stringify(response.user))
-
+      localStorage.setItem("@user", JSON.stringify(response.user));
     } catch (err) {
       toast.error("Tente novamente!");
-      setLoading(false)
+      setLoading(false);
     }
   }
 
