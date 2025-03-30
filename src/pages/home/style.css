@@ -47,6 +47,11 @@
   box-shadow: 1px 1px 3px 0px;
   border: none;
 }
+.textAdd {
+  font-size: 17px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
 
 .bntAdd {
   margin-top: 7px;
@@ -173,47 +178,18 @@
   border-radius: 5px;
 }
 
-.areaEmail {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 
-.textEmail {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  letter-spacing: 0.1em;
-  color: rgb(0, 0, 0);
-  font-size: 15px;
-  opacity: 0.8;
-}
 
-.areaBntSair {
+.bntPerfil{
   width: 50%;
-  height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 5px;
-  margin-bottom: 30px;
-}
-
-.bntSair {
   padding: 7px;
-  width: 30%;
-  border: none;
+  background-color: blue;
+  color: white;
+  margin-top: 20px;
   border-radius: 5px;
-  transition: 500ms;
-  background-color: rgba(50, 50, 50, 0.959);
-  color: rgb(255, 255, 255);
-  font-weight: 600;
+  border: none;
   cursor: pointer;
 }
-
 .textTipo {
   color: rgb(0, 0, 0);
   letter-spacing: 5px;
@@ -249,17 +225,15 @@
     font-size: 24px;
     margin-top: 25px;
   }
-  .areaEmail {
-    margin-bottom: 20px;
-  }
-  .textEmail {
-    font-family: Arial, Helvetica, sans-serif;
-  }
   .area {
     width: 100%;
-    height: 30vh;
-    box-shadow: 0px 0px 0px;
-    margin-bottom: 50px;
+    height: auto;
+    background-color: #cccc;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 3px 5px 2px;
   }
   .areabntMostrarlist {
     width: 100%;

@@ -1,7 +1,9 @@
 import "./style.css";
 
-import { addDoc, doc, getDocs, where, query } from "firebase/firestore";
 
+import { useNavigate } from "react-router-dom";
+
+import { addDoc, doc, getDocs, where, query } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { db } from "../../services/firebase";
@@ -10,48 +12,43 @@ import { deleteDoc } from "firebase/firestore";
 import { AuthContext } from "../../context";
 import { useContext } from "react";
 
-
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
-
+  const navigation = useNavigate();
   const [dados, setDados] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
   const [isActive, setIsActive] = useState(false);
 
-  
-  
-
   async function AddReceita(e) {
     e.preventDefault();
-  
+
     if (!dados) {
       toast.error("O valor da receita é obrigatório!");
       return;
     }
-  
+
     try {
       const response = await addDoc(collection(db, "receita"), {
         valor: dados,
         uid: user.user.uid,
-      }).then(()=>{
+      }).then(() => {
         toast.success("Receita adicionada com sucesso!");
         setDados("");
-      })
-     return;
+      });
+      return;
     } catch (error) {
       console.error("Erro ao adicionar receita:", error);
-     
     }
   }
   async function AddGastos(e) {
     e.preventDefault();
-  
+
     if (!dados) {
       toast.error("O valor do gasto é obrigatório!");
       return;
     }
-  
+
     try {
       const response = await addDoc(collection(db, "gastos"), {
         valor: dados,
@@ -110,9 +107,6 @@ export default function Home() {
     Gastos();
   }, [Deletar, DeletarGastos]);
 
-  async function Sair() {
-    LogOut();
-  }
 
   async function Deletar(id) {
     const ref = doc(db, "receita", id);
@@ -141,15 +135,15 @@ export default function Home() {
   return (
     <div className="conteiner">
       <div className="area">
-        <h2 className="title">Olá!</h2>
-        <div className="areaEmail">
-          <h3 className="textEmail">E-Mail: {user.user.email}</h3>
+        <h2 className="title">Olá, Bem vindo!</h2>
+        
 
-          <button className="bntSair" onClick={Sair}>
-            Sair da Conta!
-          </button>
-        </div>
+        <button onClick={()=> navigation('/Perfil')} className="bntPerfil">
+          <p>Perfil</p>
+        </button>
+        
         <div className="areaInput">
+          <p className="textAdd">Adicionar Receita e Gastos!</p>
           <input
             className="input"
             placeholder="Gastos/Entradas"
@@ -168,66 +162,42 @@ export default function Home() {
           </div>
         </div>
 
-        {isActive ? (
-
-          <div className="areabntMostrarlist">
-            <button
-              onClick={() => setIsActive(!isActive)}
-              className="bntMostrarList"
-            >
-              Ocultar lista!
-            </button>
-          </div>
-        ) : (
-          <div className="areabntMostrarlist">
-            <button
-              onClick={() => setIsActive(!isActive)}
-              className="bntMostrarList"
-            >
-              Mostrar lista!
-            </button>
-          </div>
-        )}
+        
       </div>
 
+      <div className="areaRenderDados">
+        <div className="areaRenderReceita">
+          <h2 className="textTipo">Receita</h2>
+          {data.map((item) => (
+            <div key={item} className="areadados">
+              <p className="textValor">R$ {item.valor}</p>
 
-      {isActive ? (
-        <div className="areaRenderDados">
-          <div className="areaRenderReceita">
-            <h2 className="textTipo">Receita</h2>
-            {data.map((item) => (
-              <div key={item} className="areadados">
-                <p className="textValor">R$ {item.valor}</p>
-              
-                <button className="bntExcluir" onClick={() => Deletar(item.id)}>
-                  Excluir
-                </button>
-              </div>
-            ))}
-          </div>
-
-          <div className="areaRenderGastos">
-            <h2 className="textTipo">Gastos</h2>
-            {gastos.map((item) => (
-              <div className="areadados">
-                <p className="textValor">R${item.valor}</p>
-                <p>{item.descricao}</p>
-
-                <button
-                  className="bntExcluir"
-                  onClick={() => DeletarGastos(item.id)}
-                >
-                  Excluir
-                </button>
-              </div>
-            ))}
-          </div>
+              <button className="bntExcluir" onClick={() => Deletar(item.id)}>
+                Excluir
+              </button>
+            </div>
+          ))}
         </div>
-      ) : (
-        <div className="infoBntMostrarLista">
-          <h3>Aperte no botão "Mostrar Lista" para exibir os registros</h3>
+
+        <div className="areaRenderGastos">
+          <h2 className="textTipo">Gastos</h2>
+          {gastos.map((item) => (
+            <div className="areadados">
+              <p className="textValor">R${item.valor}</p>
+              <p>{item.descricao}</p>
+
+              <button
+                className="bntExcluir"
+                onClick={() => DeletarGastos(item.id)}
+              >
+                Excluir
+              </button>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
+
+      
     </div>
   );
 }

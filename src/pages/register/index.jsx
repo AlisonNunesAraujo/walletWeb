@@ -36,7 +36,7 @@ export default function Register() {
   return (
     <div className="cont">
       <form className="form" onClick={handleSubmit(Register)}>
-        <h1 className="TitleRegister">Faça seu registro</h1>
+        <h1 className="Title">Faça seu registro</h1>
 
         <input
           placeholder="E-Mail"
@@ -64,7 +64,7 @@ export default function Register() {
           </button>
         )}
 
-        <Link to="/" className="bntVoltar">
+        <Link to="/Login" className="bntVoltar">
           Voltar
         </Link>
       </form>
