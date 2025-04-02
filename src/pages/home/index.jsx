@@ -18,7 +18,6 @@ export default function Home() {
   const [dados, setDados] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
-  const [isActive, setIsActive] = useState(false);
 
   async function AddReceita(e) {
     e.preventDefault();
@@ -136,12 +135,12 @@ export default function Home() {
     <div className="conteiner">
       <div className="area">
         <h2 className="title">Olá, Bem vindo!</h2>
-        
 
-        <button onClick={()=> navigation('/Perfil')} className="bntPerfil">
+
+        <button onClick={() => navigation('/Perfil')} className="bntPerfil">
           <p>Perfil</p>
         </button>
-        
+
         <div className="areaInput">
           <p className="textAdd">Adicionar Receita e Gastos!</p>
           <input
@@ -162,7 +161,7 @@ export default function Home() {
           </div>
         </div>
 
-        
+
       </div>
 
       <div className="areaRenderDados">
@@ -197,7 +196,7 @@ export default function Home() {
         </div>
       </div>
 
-      
+
     </div>
   );
 }

@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
 import "./style.css";
-
-
-
-
 import { useContext } from "react";
 import { AuthContext } from "../../context";
 import { useForm } from "react-hook-form";

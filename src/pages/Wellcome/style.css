@@ -1,5 +1,5 @@
 .wellcome {
-  background-color: #382c5a;
+  background-color: #0c0816;
   width: 100%;
   height: 100dvh;
   display: flex;
@@ -44,7 +44,7 @@
   font-size: 36px;
   color: white;
   margin-top: 30px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .areaIrLogin button {
   width: 150px;
@@ -55,10 +55,8 @@
   color: rgb(0, 0, 0);
   font-size: 20px;
   cursor: pointer;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-
-
 
 @keyframes Flutuar {
   0% {
@@ -85,30 +83,29 @@
 }
 
 @media screen and (max-width: 700px) {
-    .wellcome {
-        flex-direction: column;
-    }
-    .areaWellcome {
-        width: 100%;
-        height: 50%;
-        overflow: hidden;
-    }
-    .areaWellcome h2 {
-        font-size: 70px;
-        margin-left: 20px;
-    }
-    .areaWellcome p {
-        font-size: 20px;
-        margin-left: 20px;
-    }
-    .areaIrLogin {
-        width: 100%;
-        height: 50%;
-    }
-    .areaIrLogin h3 {
-        font-size: 40px;
-        text-align: center;
-        margin: 10px;
-    }
-    
+  .wellcome {
+    flex-direction: column;
+  }
+  .areaWellcome {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+  }
+  .areaWellcome h2 {
+    font-size: 70px;
+    margin-left: 20px;
+  }
+  .areaWellcome p {
+    font-size: 20px;
+    margin-left: 20px;
+  }
+  .areaIrLogin {
+    width: 100%;
+    height: 50%;
+  }
+  .areaIrLogin h3 {
+    font-size: 40px;
+    text-align: center;
+    margin: 10px;
+  }
 }

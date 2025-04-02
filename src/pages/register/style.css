@@ -1,8 +1,8 @@
 .cont {
   width: 100%;
   height: 100dvh;
-  background-color: #382c5a;
   display: flex;
+  background-color: #0c0816;
   align-items: center;
   justify-content: center;
 }
@@ -14,15 +14,15 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background-color: rgb(202, 202, 202);
+  border: green solid 1px;
 }
 .Title {
   font-size: 25px;
-  font-weight:900;
+  font-weight: 900;
   letter-spacing: 2px;
   font-family: Arial, Helvetica, sans-serif;
-  
-  color: rgb(74, 63, 63);
+
+  color: rgb(255, 253, 253);
 }
 
 .inputs {
@@ -34,6 +34,9 @@
   outline: none;
   border: none;
   color: black;
+}
+.form p {
+  color: red;
 }
 
 .bnt {
@@ -47,7 +50,7 @@
 .bntVoltar {
   text-decoration: none;
   margin-top: 10px;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 @media (max-width: 790px) {
