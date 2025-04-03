@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 
 export function Context({ children }) {
   const [user, setUser] = useState(null);
+
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);

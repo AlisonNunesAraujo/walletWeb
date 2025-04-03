@@ -38,6 +38,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 20px;
 }
 
 .areaIrLogin h3 {
@@ -102,6 +103,7 @@
   .areaIrLogin {
     width: 100%;
     height: 50%;
+    gap: 20px;
   }
   .areaIrLogin h3 {
     font-size: 40px;

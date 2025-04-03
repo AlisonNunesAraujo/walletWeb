@@ -1,6 +1,5 @@
 import "./style.css";
 
-
 import { useNavigate } from "react-router-dom";
 
 import { addDoc, doc, getDocs, where, query } from "firebase/firestore";
@@ -18,7 +17,7 @@ export default function Home() {
   const [dados, setDados] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
-
+  const [saldo, setSaldo] = useState(0);
   async function AddReceita(e) {
     e.preventDefault();
 
@@ -79,6 +78,8 @@ export default function Home() {
         });
 
         setData(lista);
+        const data = lista.reduce((acc, item) => acc + item.valor, 0);
+        setSaldo(data);
       });
     }
 
@@ -105,7 +106,6 @@ export default function Home() {
 
     Gastos();
   }, [Deletar, DeletarGastos]);
-
 
   async function Deletar(id) {
     const ref = doc(db, "receita", id);
@@ -135,9 +135,14 @@ export default function Home() {
     <div className="conteiner">
       <div className="area">
         <h2 className="title">Olá, Bem vindo!</h2>
+        {/* {saldo.map((item) => (
+          <div key={item} className="areaSaldo">
+            <p>Saldo</p>
+            <h1>R${item}</h1>
+          </div>
+        ))} */}
 
-
-        <button onClick={() => navigation('/Perfil')} className="bntPerfil">
+        <button onClick={() => navigation("/Perfil")} className="bntPerfil">
           <p>Perfil</p>
         </button>
 
@@ -160,8 +165,6 @@ export default function Home() {
             </button>
           </div>
         </div>
-
-
       </div>
 
       <div className="areaRenderDados">
@@ -195,8 +198,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-
-
     </div>
   );
 }

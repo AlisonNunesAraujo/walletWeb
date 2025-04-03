@@ -13,7 +13,7 @@ export default function Perfil() {
     <div className='perfil'>
       <div>
         <h1>Seu Perfil</h1>
-        <p>Seu E-Mail: {user.user.email}</p>
+        <input type="text" value={user.user.email} enabled />
         <button onClick={() => navigation("/home")}>
           <p>Voltar para a home</p>
         </button>
