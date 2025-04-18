@@ -1,7 +1,7 @@
 import "./style.css";
 
 import { useNavigate } from "react-router-dom";
-
+import { FiUser } from 'react-icons/fi'
 import { addDoc, doc, getDocs, where, query } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { toast } from "react-toastify";
@@ -96,7 +96,7 @@ export default function Home() {
 
 
         <button onClick={() => navigation("/Perfil")} className="bntPerfil">
-          <p>Perfil</p>
+          <FiUser size={25} color="white" />
         </button>
 
 
@@ -104,7 +104,7 @@ export default function Home() {
 
       <div className="menuInicial">
         <button onClick={() => navigation("/CreateRegister")}>
-          <p>Add Receita</p>
+          <p>Adicionar Receita/Gstos</p>
         </button>
         <button onClick={() => navigation("/ViewRegister")}>
           <p>Ver registros</p>
