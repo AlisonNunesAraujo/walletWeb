@@ -24,158 +24,6 @@
   letter-spacing: 2px;
   margin-top: 40px;
 }
-.areaInput {
-  width: 100%;
-  height: "auto";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  flex-direction: column;
-  margin-bottom: 20px;
-  margin: 20px;
-}
-
-.input {
-  width: 80%;
-  outline: none;
-  border-radius: 5px;
-  margin-top: 20px;
-  padding: 10px;
-  box-shadow: 1px 1px 3px 0px;
-  border: none;
-}
-.textAdd {
-  font-size: 17px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: #fff9f9;
-}
-
-.bntAdd {
-  margin-top: 7px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  padding: 10px;
-  border-radius: 5px;
-  transition: 500ms;
-  background-color: rgb(7, 82, 243);
-  color: white;
-}
-
-.bntAdd:hover {
-  background-color: blueviolet;
-  color: white;
-}
-
-.areaBnts {
-  display: flex;
-  margin: 5px;
-  gap: 10px;
-}
-
-.bntGastos {
-  margin-top: 7px;
-  border: none;
-  cursor: pointer;
-  transition: 500ms;
-  padding: 10px;
-  border-radius: 5px;
-  transition: 500ms;
-  font-weight: 600;
-  background-color: rgb(7, 82, 243);
-  color: white;
-}
-
-.bntGastos:hover {
-  background-color: red;
-  color: white;
-}
-
-.areaRenderDados {
-  width: 50%;
-  height: 40vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 60px;
-}
-
-.areaRenderReceita {
-  width: 30%;
-  height: 60vh;
-  overflow-y: auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 5px;
-  background-color: rgb(221, 218, 218);
-  opacity: 0.9;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-}
-
-.areaRenderGastos {
-  width: 30%;
-  height: 60vh;
-  overflow-y: auto;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-direction: column;
-  background-color: rgb(221, 218, 218);
-  opacity: 0.9;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-}
-.infoBntMostrarLista {
-  width: 75%;
-  height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.infoBntMostrarLista h3 {
-  font-family: sans-serif;
-}
-.textValor {
-  color: rgb(0, 0, 0);
-  margin: 5px;
-  font-weight: 600;
-  font-size: 15px;
-  font-family: sans-serif;
-  letter-spacing: 2px;
-}
-
-.bntExcluir {
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-  transition: 500ms;
-  font-weight: bolder;
-  cursor: pointer;
-}
-
-.bntExcluir:hover {
-  background-color: red;
-  color: white;
-}
-
-.areadados {
-  width: 90%;
-  height: "auto";
-  gap: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border-radius: 5px;
-}
 
 .bntPerfil {
   width: 50%;
@@ -187,27 +35,31 @@
   border: none;
   cursor: pointer;
 }
-.textTipo {
-  color: rgb(4, 4, 4);
-  letter-spacing: 5px;
-  font-weight: bold;
-  font-size: 25px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+.menuInicial {
+  width: 75%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
 }
 
-.bntSair:hover {
-  background-color: red;
-}
-
-.bntMostrarList {
-  width: 100%;
-  padding: 7px;
-  background-color: blue;
-  color: white;
+.menuInicial button {
+  width: 13%;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(0, 0, 255, 0.3);
   margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
   border: none;
   cursor: pointer;
+  color: white;
+  font-size: 15px;
 }
 
 @media (max-width: 890px) {
@@ -224,7 +76,7 @@
   }
   .area {
     width: 100%;
-    height: auto;
+    height: 20vh;
     background-color: #2a2045;
     opacity: 0.9;
     display: flex;
@@ -232,73 +84,27 @@
     align-items: center;
     box-shadow: 0px 3px 5px 2px;
   }
-  .areabntMostrarlist {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-
-  .areaInput {
-    width: 80%;
-    height: 15vh;
-  }
-
-  .areaRenderDados {
-    width: 100%;
-    height: 50vh;
-    margin-top: 100px;
-    align-items: center;
-  }
-  .areabntMostrarlist {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 60px;
-  }
-  .bntMostrarList {
-    width: 50%;
-    padding: 7px;
-    background-color: blue;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-
-  .areaRenderReceita {
-    width: 40%;
-    height: 40vh;
-  }
-  .areaRenderGastos {
-    width: 40%;
-    height: 40vh;
-  }
-  .areaSair {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .bntSair {
-    width: 30%;
-    background-color: rgb(61, 61, 61);
-  }
-  .infoBntMostrarLista {
+  .menuInicial {
     width: 100%;
     height: 100dvh;
     display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+  }
+  .menuInicial button {
+    width: 90%;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgba(0, 0, 255, 0.3);
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
-  }
-
-  .infoBntMostrarLista h3 {
-    font-family: sans-serif;
-    font-size: 10px;
+    border: none;
+    cursor: pointer;
   }
 }

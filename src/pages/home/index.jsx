@@ -14,51 +14,9 @@ import { useContext } from "react";
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
   const navigation = useNavigate();
-  const [dados, setDados] = useState("");
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
-  const [saldo, setSaldo] = useState(0);
-  async function AddReceita(e) {
-    e.preventDefault();
 
-    if (!dados) {
-      toast.error("O valor da receita é obrigatório!");
-      return;
-    }
-
-    try {
-      const response = await addDoc(collection(db, "receita"), {
-        valor: dados,
-        uid: user.user.uid,
-      }).then(() => {
-        toast.success("Receita adicionada com sucesso!");
-        setDados("");
-      });
-      return;
-    } catch (error) {
-      console.error("Erro ao adicionar receita:", error);
-    }
-  }
-  async function AddGastos(e) {
-    e.preventDefault();
-
-    if (!dados) {
-      toast.error("O valor do gasto é obrigatório!");
-      return;
-    }
-
-    try {
-      const response = await addDoc(collection(db, "gastos"), {
-        valor: dados,
-        uid: user.user.uid,
-      });
-      setDados("");
-      toast.success("Gasto adicionado com sucesso!");
-      return;
-    } catch (err) {
-      toast.error("Ocorreu um erro: ");
-    }
-  }
 
   useEffect(() => {
     async function Push() {
@@ -78,8 +36,8 @@ export default function Home() {
         });
 
         setData(lista);
-        const data = lista.reduce((acc, item) => acc + item.valor, 0);
-        setSaldo(data);
+        const response = lista.reduce((acc, item) => acc + item.valor, 0);
+        setSaldo([response]);
       });
     }
 
@@ -135,69 +93,31 @@ export default function Home() {
     <div className="conteiner">
       <div className="area">
         <h2 className="title">Olá, Bem vindo!</h2>
-        {/* {saldo.map((item) => (
-          <div key={item} className="areaSaldo">
-            <p>Saldo</p>
-            <h1>R${item}</h1>
-          </div>
-        ))} */}
+
 
         <button onClick={() => navigation("/Perfil")} className="bntPerfil">
           <p>Perfil</p>
         </button>
 
-        <div className="areaInput">
-          <p className="textAdd">Adicionar Receita e Gastos!</p>
-          <input
-            className="input"
-            placeholder="Gastos/Entradas"
-            type="number"
-            value={dados}
-            onChange={(e) => setDados(e.target.value)}
-          />
 
-          <div className="areaBnts">
-            <button className="bntAdd" onClick={(e) => AddReceita(e)}>
-              Entrada
-            </button>
-            <button className="bntGastos" onClick={(e) => AddGastos(e)}>
-              Gastos
-            </button>
-          </div>
-        </div>
       </div>
 
-      <div className="areaRenderDados">
-        <div className="areaRenderReceita">
-          <h2 className="textTipo">Receita</h2>
-          {data.map((item) => (
-            <div key={item} className="areadados">
-              <p className="textValor">R$ {item.valor}</p>
-
-              <button className="bntExcluir" onClick={() => Deletar(item.id)}>
-                Excluir
-              </button>
-            </div>
-          ))}
-        </div>
-
-        <div className="areaRenderGastos">
-          <h2 className="textTipo">Gastos</h2>
-          {gastos.map((item) => (
-            <div className="areadados">
-              <p className="textValor">R${item.valor}</p>
-              <p>{item.descricao}</p>
-
-              <button
-                className="bntExcluir"
-                onClick={() => DeletarGastos(item.id)}
-              >
-                Excluir
-              </button>
-            </div>
-          ))}
-        </div>
+      <div className="menuInicial">
+        <button onClick={() => navigation("/CreateRegister")}>
+          <p>Add Receita</p>
+        </button>
+        <button onClick={() => navigation("/ViewRegister")}>
+          <p>Ver registros</p>
+        </button>
+        <button onClick={() => toast.info("Em desenvolvimento")}>
+          <p>Dolar</p>
+        </button>
+        <button onClick={() => toast.info("Em desenvolvimento")}>
+          <p>Adicionar conta fixa</p>
+        </button>
       </div>
+
+
     </div>
   );
 }

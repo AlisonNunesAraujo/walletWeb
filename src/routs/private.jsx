@@ -3,14 +3,14 @@ import { AuthContext } from "../context"
 
 import { useContext } from "react";
 
-export default function Private({children}){
-    const {signed} = useContext(AuthContext)
+export default function Private({ children }) {
+    const { signed } = useContext(AuthContext)
 
-    if(!signed){
-        return <Navigate to='/'/>
+    if (!signed) {
+        return <Navigate to='/' />
     }
 
 
     return children;
-} 
+}
 
