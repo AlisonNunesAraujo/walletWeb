@@ -30,6 +30,7 @@ export default function ViewRegister() {
                     lista.push({
                         id: doc.id,
                         valor: doc.data().valor,
+                        date: doc.data().date,
                     });
                 });
 
@@ -51,6 +52,7 @@ export default function ViewRegister() {
                     lista.push({
                         id: doc.id,
                         valor: doc.data().valor,
+                        date: doc.data().date,
                     });
                 });
 
@@ -94,6 +96,7 @@ export default function ViewRegister() {
                     {data.map((item) => (
                         <div key={item} className="areadados">
                             <p className="textValor">R$ {item.valor}</p>
+                            <p className="textValor">{item.date}</p>
 
                             <button className="bntExcluir" onClick={() => Deletar(item.id)}>
                                 Excluir
@@ -107,7 +110,8 @@ export default function ViewRegister() {
                     {gastos.map((item) => (
                         <div className="areadados">
                             <p className="textValor">R${item.valor}</p>
-                            <p>{item.descricao}</p>
+                            <p className="textValor">{item.date}</p>
+
 
                             <button
                                 className="bntExcluir"
