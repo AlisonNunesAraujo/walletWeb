@@ -8,7 +8,6 @@ import { AuthContext } from "../../context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header";
-import { format } from 'date-fns'
 
 
 export default function CreateRegister() {
@@ -26,7 +25,7 @@ export default function CreateRegister() {
             const response = await addDoc(collection(db, "receita"), {
                 valor: dados,
                 uid: user.user.uid,
-                date: format(new Date(), 'dd/MM/yyyy'),
+
             }).then(() => {
                 toast.success("Receita adicionada com sucesso!");
                 setDados("");
@@ -50,7 +49,7 @@ export default function CreateRegister() {
             const response = await addDoc(collection(db, "gastos"), {
                 valor: dados,
                 uid: user.user.uid,
-                date: format(new Date(), 'dd/MM/yyyy'),
+
             }).then(() => {
                 toast.success("Gastos adicionada com sucesso!");
                 setDados("");
