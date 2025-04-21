@@ -9,11 +9,9 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header";
 import { format } from 'date-fns'
-
-
 export default function CreateRegister() {
     const { user } = useContext(AuthContext);
-    const [dados, setDados] = useState("");
+    const [dados, setDados] = useState();
     const navigation = useNavigate();
     async function AddReceita(e) {
         e.preventDefault();
@@ -67,11 +65,12 @@ export default function CreateRegister() {
             <div className="formRegister">
                 <h1>Adicionar Receita/Gastos</h1>
                 <input
+
                     placeholder="Receita/Gastos"
-                    type="number"
                     value={dados}
                     onChange={(e) => setDados(e.target.value)}
                 />
+
 
                 <div>
                     <button onClick={(e) => AddReceita(e)}>Receita</button>
