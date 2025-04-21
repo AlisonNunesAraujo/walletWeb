@@ -96,7 +96,6 @@ export default function ViewRegister() {
                     {data.map((item) => (
                         <div key={item} className="areadados">
                             <p className="textValor"> {item.valor}</p>
-                            <p className="textValor">{item.date}</p>
 
                             <button className="bntExcluir" onClick={() => Deletar(item.id)}>
                                 Excluir
@@ -109,8 +108,7 @@ export default function ViewRegister() {
                     <h2 className="textTipo">Gastos</h2>
                     {gastos.map((item) => (
                         <div className="areadados">
-                            <p className="textValor">R${item.valor}</p>
-                            <p className="textValor">{item.date}</p>
+                            <p className="textValor">{item.valor}</p>
 
                             <button
                                 className="bntExcluir"
