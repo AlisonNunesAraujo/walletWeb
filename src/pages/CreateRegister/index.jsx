@@ -8,7 +8,10 @@ import { AuthContext } from "../../context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header";
-import { format } from 'date-fns'
+import { format } from 'date-fns';
+import InputMask from 'react-input-mask';
+
+
 export default function CreateRegister() {
     const { user } = useContext(AuthContext);
     const [dados, setDados] = useState();
@@ -64,11 +67,15 @@ export default function CreateRegister() {
             <Header />
             <div className="formRegister">
                 <h1>Adicionar Receita/Gastos</h1>
-                <input
 
-                    placeholder="Receita/Gastos"
+
+                <InputMask
+                    id="valor"
+                    mask="R$ 999999,99"
                     value={dados}
                     onChange={(e) => setDados(e.target.value)}
+                    maskChar=""
+                    placeholder="Digite o valor"
                 />
 
 
