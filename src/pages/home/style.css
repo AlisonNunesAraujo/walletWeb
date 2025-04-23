@@ -46,7 +46,7 @@
 }
 
 .menuInicial button {
-  width: 13%;
+  width: 30%;
   height: 15vh;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,6 @@
   .area {
     width: 100%;
     height: 10vh;
-    background-color: #2a2045;
     opacity: 0.9;
     display: flex;
     flex-direction: row;
@@ -102,7 +101,7 @@
   }
   .menuInicial {
     width: 100%;
-    height: 100dvh;
+    height: 35dvh;
     display: flex;
     flex-direction: column;
     align-items: center;

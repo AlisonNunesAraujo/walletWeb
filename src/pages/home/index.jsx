@@ -100,6 +100,7 @@ export default function Home() {
         </button>
 
 
+
       </div>
 
       <div className="menuInicial">
@@ -109,12 +110,7 @@ export default function Home() {
         <button onClick={() => navigation("/ViewRegister")}>
           <p>Ver registros</p>
         </button>
-        <button onClick={() => toast.info("Em desenvolvimento")}>
-          <p>Dolar</p>
-        </button>
-        <button onClick={() => toast.info("Em desenvolvimento")}>
-          <p>Adicionar conta fixa</p>
-        </button>
+
       </div>
 
 
