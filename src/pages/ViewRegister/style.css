@@ -79,6 +79,10 @@
   color: white;
 }
 @media screen and (max-width: 700px) {
+  .viewRegister {
+    width: 100%;
+    height: 100dvh;
+  }
   .areaRenderReceita {
     width: 45%;
     height: 60vh;
