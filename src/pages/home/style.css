@@ -1,125 +1,113 @@
 .conteiner {
   width: 100%;
   height: 100vh;
-  background-color: #0c0816;
+}
+
+.globo {
+  width: 100%;
+  height: 100vh;
   display: flex;
+  background-color: blue;
   flex-direction: row;
 }
 
-.area {
-  width: 25%;
+.menu {
+  width: 15%;
   height: 100vh;
-  background-color: #1d1531;
-  opacity: 0.9;
   display: flex;
+  background-color: rgba(255, 255, 255, 0.888);
   flex-direction: column;
   align-items: center;
+  gap: 30px;
 }
-
 .title {
   font-size: 25px;
-  font-family: "Arial";
-  font-weight: 700;
-  color: rgb(255, 255, 255);
-  letter-spacing: 2px;
-  margin-top: 40px;
-}
-
-.bntPerfil {
-  width: 50%;
-  padding: 7px;
-  background-color: blue;
-  color: white;
   margin-top: 20px;
+}
+.bntPerfil {
+  width: 80%;
+  height: auto;
   border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.816);
+  color: rgb(0, 0, 0);
   border: none;
-  cursor: pointer;
+  padding: 5px;
 }
-
-.menuInicial {
-  width: 75%;
+.dashboard {
+  width: 85%;
   height: 100vh;
+  background-color: rgb(255, 255, 255);
+}
+.textTitle {
+  width: 100%;
+  height: 10vh;
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-  justify-content: center;
+  align-items: center;
+  background-color: rgb(236, 233, 233);
+}
+.textTitle h2 {
+  margin-left: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.menuInicial button {
-  width: 30%;
-  height: 15vh;
+.areaBnts {
+  width: 50%;
+  height: 70vh;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  background-color: rgba(0, 0, 255, 0.3);
-  margin-top: 20px;
-  border-radius: 10px;
   align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  color: white;
-  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 20px;
+  gap: 30px;
 }
 
-@media (max-width: 890px) {
-  .conteiner {
-    width: 100%;
-    height: 100dvh;
+.areaBnts button {
+  width: 80%;
+  height: 150px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.816);
+  color: rgb(255, 255, 255);
+  border: none;
+}
+
+@media screen and (max-width: 700px) {
+  .menu {
+    width: 40%;
+    height: 100vh;
     display: flex;
+    background-color: rgba(255, 255, 255, 0.944);
     flex-direction: column;
-    background-color: #0c0816;
+    align-items: center;
+    gap: 30px;
   }
   .title {
-    font-size: 20px;
-    margin-top: 25px;
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .textTitle {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    background-color: rgb(236, 233, 233);
+  }
+  .textTitle h2 {
     margin-left: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
   }
-  .area {
-    width: 100%;
-    height: 10vh;
-    opacity: 0.9;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0c0816;
-  }
-
-  .area button {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: rgba(0, 0, 255, 0.3);
-    margin-right: 20px;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
-  }
-  .menuInicial {
-    width: 100%;
-    height: 35dvh;
+  .areaBnts {
+    width: 80%;
+    height: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-  }
-  .menuInicial button {
-    width: 60%;
-    height: 1ovh;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: rgba(0, 0, 255, 0.3);
     margin-top: 20px;
     margin-left: 20px;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
+    gap: 30px;
   }
 }

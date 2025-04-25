@@ -5,7 +5,6 @@ import Login from "../pages/login";
 import Register from "../pages/register";
 import Private from "./private";
 import PageNotFaund from "../pages/PageNotFaund";
-import Wellcome from "../pages/Wellcome";
 import Perfil from "../pages/Perfil";
 import CreateRegister from "../pages/CreateRegister";
 import ViewRegister from "../pages/ViewRegister";
@@ -46,7 +45,7 @@ export function Routs() {
           </Private>
         }
       />
-      <Route path="/" element={<Wellcome />} />
+
       <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={<Register />} />
 

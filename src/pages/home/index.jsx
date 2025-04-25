@@ -1,7 +1,7 @@
 import "./style.css";
 
 import { useNavigate } from "react-router-dom";
-import { FiUser } from 'react-icons/fi'
+import { FiUser } from "react-icons/fi";
 import { addDoc, doc, getDocs, where, query } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { toast } from "react-toastify";
@@ -16,7 +16,6 @@ export default function Home() {
   const navigation = useNavigate();
   const [data, setData] = useState([]);
   const [gastos, setGastos] = useState([]);
-
 
   useEffect(() => {
     async function Push() {
@@ -91,29 +90,29 @@ export default function Home() {
 
   return (
     <div className="conteiner">
-      <div className="area">
-        <h2 className="title">Olá, Bem vindo!</h2>
+      <div className="globo">
+        <div className="menu">
+          <h2 className="title">Olá, Bem vindo!</h2>
 
+          <button onClick={() => navigation("/Perfil")} className="bntPerfil">
+            <FiUser size={25} color="black" />
+          </button>
+        </div>
 
-        <button onClick={() => navigation("/Perfil")} className="bntPerfil">
-          <FiUser size={25} color="white" />
-        </button>
-
-
-
+        <div className="dashboard">
+          <div className="textTitle">
+            <h2>Dasboard</h2>
+          </div>
+          <div className="areaBnts">
+            <button onClick={() => navigation("/CreateRegister")}>
+              <p>Adicionar Receita/Gstos</p>
+            </button>
+            <button onClick={() => navigation("/ViewRegister")}>
+              <p>Ver registros</p>
+            </button>
+          </div>
+        </div>
       </div>
-
-      <div className="menuInicial">
-        <button onClick={() => navigation("/CreateRegister")}>
-          <p>Adicionar Receita/Gstos</p>
-        </button>
-        <button onClick={() => navigation("/ViewRegister")}>
-          <p>Ver registros</p>
-        </button>
-
-      </div>
-
-
     </div>
   );
 }
