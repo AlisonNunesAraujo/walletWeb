@@ -35,40 +35,46 @@ export default function Register() {
   }
 
   return (
-    <div className="cont">
-      <form className="form" onClick={handleSubmit(Register)}>
-        <h1 className="Title">Faça seu registro</h1>
+    <div className="global">
+      <div className="login">
+        <form className="formLogin" onClick={handleSubmit(Register)}>
+          <h1 className="Title">Faça seu registro</h1>
 
-        <input
-          placeholder="E-Mail"
-          className="inputs"
-          {...register("email")}
-          id="email"
-        />
-        <p>{errors.email?.message}</p>
-        <input
-          placeholder="Senha"
-          className="inputs"
-          type="password"
-          {...register("senha")}
-          id="senha"
-        />
-        <p>{errors.senha?.message}</p>
+          <input
+            placeholder="E-Mail"
+            {...register("email")}
+            id="email"
+          />
+          <p>{errors.email?.message}</p>
+          <input
+            placeholder="Senha"
+            type="password"
+            {...register("senha")}
+            id="senha"
+          />
+          <p>{errors.senha?.message}</p>
 
-        {loading ? (
-          <button className="bnt" type="submit">
-            Criando...
-          </button>
-        ) : (
-          <button className="bnt" type="submit">
-            Criar
-          </button>
-        )}
+          {loading ? (
+            <button className="bntLogin" type="submit" >
+              Criando...
+            </button>
+          ) : (
+            <button className="bntLogin" type="submit">
+              Criar conta
+            </button>
+          )}
 
-        <Link to="/Login" className="bntVoltar">
-          Voltar
-        </Link>
-      </form>
+          <Link to="/Login" className="bntVoltar">
+            Voltar
+          </Link>
+        </form>
+        <div className="apresentacao">
+          <img
+            src="https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-login-movel_114360-83.jpg?semt=ais_hybrid&w=740"
+            className="img"
+          />
+        </div>
+      </div>
     </div>
   );
 }

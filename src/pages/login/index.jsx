@@ -30,40 +30,51 @@ export default function Login() {
   }
 
   return (
-    <div className="grupo">
-      <form className="form" onSubmit={handleSubmit(Hendle)}>
-        <h1 className="Title">Entre na sua conta!</h1>
-        <input
-          placeholder="E-Mail"
-          className="inputs"
-          type="email"
-          {...register("email")}
-          id="email"
-        />
-        <p>{errors.email?.message}</p>
-        <input
-          placeholder="Senha"
-          className="inputs"
-          type="password"
-          {...register("senha")}
-          id="senha"
-        />
-        <p>{errors.senha?.message}</p>
+    <div className="global" >
+      <div className="login">
+        <form className="formLogin" onSubmit={handleSubmit(Hendle)}>
+          <h1 className="Title">Entre na sua conta!</h1>
 
-        {loading ? (
-          <button className="bnt" type="submit">
-            Carregando...
-          </button>
-        ) : (
-          <button className="bnt" type="submit">
-            Entrar
-          </button>
-        )}
+          <input
+            placeholder="E-Mail"
+            className="inputs"
+            type="email"
+            {...register("email")}
+            id="email"
+          />
+          <p>{errors.email?.message}</p>
 
-        <Link to="/Register" className="bntCriar">
-          Criar conta!
-        </Link>
-      </form>
+          <input
+            placeholder="Senha"
+            className="inputs"
+            type="password"
+            {...register("senha")}
+            id="senha"
+          />
+          <p>{errors.senha?.message}</p>
+
+          {loading ? (
+            <button type="submit" className="bntLogin">
+              Carregando...
+            </button>
+          ) : (
+            <button type="submit" className="bntLogin">
+              Entrar
+            </button>
+          )}
+
+          <Link to="/Register" className="bntCriar">
+            Criar conta!
+          </Link>
+        </form>
+
+        <div className="apresentacao">
+          <img
+            src="https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-login-movel_114360-83.jpg?semt=ais_hybrid&w=740"
+            className="img"
+          />
+        </div>
+      </div>
     </div>
   );
 }

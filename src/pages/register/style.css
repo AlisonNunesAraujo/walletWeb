@@ -1,70 +1,97 @@
-.cont {
+.global {
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
   display: flex;
-  background-color: #0c0816;
+  background-color: rgba(192, 176, 176, 0.321);
   align-items: center;
   justify-content: center;
 }
-.form {
+.login {
+  width: 80%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.491);
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+
+.formLogin {
+  width: 40%;
+  height: 90%;
   display: flex;
   flex-direction: column;
-  height: 320px;
-  width: 30%;
-  justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  border: green solid 1px;
+  justify-content: center;
+  gap: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
+
+.formLogin input {
+  width: 50%;
+  height: 10px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  outline: none;
+}
+
+.formLogin button {
+  width: 50%;
+  height: auto;
+  height: 10px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
 .Title {
   font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  font-family: Arial, Helvetica, sans-serif;
-
-  color: rgb(255, 253, 253);
+  font-family: monospace;
+  color: rgb(0, 0, 0);
+  text-align: center;
 }
 
-.inputs {
-  margin: 10px;
-  padding: 10px;
-  gap: 10px;
-  width: 50%;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-  color: black;
-}
-.form p {
-  color: red;
-}
-
-.bnt {
+.apresentacao {
   width: 40%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin-top: 10px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: rgba(146, 106, 106, 0.497);
+  border-radius: 10px;
 }
-
+.img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
 .bntVoltar {
   text-decoration: none;
-  margin-top: 10px;
-  color: rgb(255, 255, 255);
 }
 
-@media (max-width: 790px) {
-  .form {
+@media screen and (max-width: 700px) {
+  .login {
     width: 90%;
+    height: 90%;
+    flex-direction: column;
   }
-  .inputs {
-    width: 80%;
+  .formLogin {
+    width: 100%;
+    height: 50%;
   }
-  .bnt {
-    width: 50%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
+  .apresentacao {
+    width: 100%;
+    height: 50%;
+  }
+  .img {
+    width: 100%;
+    height: 100%;
   }
 }
