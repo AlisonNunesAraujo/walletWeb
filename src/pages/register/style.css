@@ -40,13 +40,20 @@
 }
 
 .bntLogin {
-  width: 50%;
-  height: auto;
-  height: 10px;
-  border-radius: 10px;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
+  .bntLogin {
+    width: 50%;
+    height: 20px;
+    border-radius: 10px;
+
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid rgba(0, 0, 0, 0.261);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
 }
 
 .Title {
