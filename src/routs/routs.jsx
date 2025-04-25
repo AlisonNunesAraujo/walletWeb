@@ -46,7 +46,7 @@ export function Routs() {
         }
       />
 
-      <Route path="/Login" element={<Login />} />
+      <Route path="/" element={<Login />} />
       <Route path="/Register" element={<Register />} />
 
       <Route path="*" element={<PageNotFaund />} />

@@ -1,8 +1,6 @@
 import "./style.css";
 import { Link } from "react-router-dom";
 
-
-
 import { useContext } from "react";
 import { AuthContext } from "../../context";
 
@@ -40,11 +38,7 @@ export default function Register() {
         <form className="formLogin" onClick={handleSubmit(Register)}>
           <h1 className="Title">Faça seu registro</h1>
 
-          <input
-            placeholder="E-Mail"
-            {...register("email")}
-            id="email"
-          />
+          <input placeholder="E-Mail" {...register("email")} id="email" />
           <p>{errors.email?.message}</p>
           <input
             placeholder="Senha"
@@ -55,7 +49,7 @@ export default function Register() {
           <p>{errors.senha?.message}</p>
 
           {loading ? (
-            <button className="bntLogin" type="submit" >
+            <button className="bntLogin" type="submit">
               Criando...
             </button>
           ) : (
@@ -64,7 +58,7 @@ export default function Register() {
             </button>
           )}
 
-          <Link to="/Login" className="bntVoltar">
+          <Link to="/" className="bntVoltar">
             Voltar
           </Link>
         </form>

@@ -21,7 +21,7 @@
   align-items: center;
   flex-direction: column;
   border-radius: 5px;
-  background-color: rgb(221, 218, 218);
+  border: 1px solid rgba(0, 0, 0, 0.393);
   opacity: 0.9;
   gap: 10px;
   margin: 0;
@@ -37,7 +37,7 @@
   align-items: center;
   gap: 10px;
   flex-direction: column;
-  background-color: rgb(221, 218, 218);
+  border: 1px solid rgba(0, 0, 0, 0.393);
   opacity: 0.9;
   margin: 0;
   padding: 0;
@@ -61,6 +61,7 @@
   font-family: sans-serif;
   letter-spacing: 2px;
   text-align: center;
+  font-weight: bold;
 }
 
 .bntExcluir {
@@ -86,7 +87,8 @@
     align-items: center;
     flex-direction: column;
     border-radius: 5px;
-    background-color: rgb(221, 218, 218);
+    border: 1px solid rgba(0, 0, 0, 0.393);
+
     opacity: 0.9;
     gap: 10px;
     margin: 0;
@@ -101,7 +103,7 @@
     align-items: center;
     gap: 10px;
     flex-direction: column;
-    background-color: rgb(221, 218, 218);
+    border: 1px solid rgba(0, 0, 0, 0.393);
     opacity: 0.9;
     margin: 0;
     padding: 0;
