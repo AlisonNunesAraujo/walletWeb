@@ -7,7 +7,7 @@ export default function Private({ children }) {
     const { signed } = useContext(AuthContext)
 
     if (!signed) {
-        return <Navigate to='/' />
+        return <Navigate to='/Login' />
     }
 
 
