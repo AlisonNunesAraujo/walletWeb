@@ -7,6 +7,7 @@ import { AuthContext } from "../../context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header";
+import InputMask from "react-input-mask";
 import "./style.css";
 export default function AccoutFixed() {
     const { user } = useContext(AuthContext);
@@ -44,18 +45,24 @@ export default function AccoutFixed() {
                     value={conta}
                     onChange={(e) => setConta(e.target.value)}
                 />
-                <input
-                    placeholder="Valor da conta"
+                <InputMask
+                    id="valor"
+                    mask="R$ 999999,99"
                     value={valor}
                     onChange={(e) => setValor(e.target.value)}
+                    maskChar=""
+                    placeholder="Digite o valor"
                 />
                 <input
                     placeholder="vencimento"
                     value={vencimento}
+                    type="date"
                     onChange={(e) => setVencimento(e.target.value)}
                 />
                 <button onClick={addAccount}>Salvar</button>
-                <button onClick={() => navigation("/ViewAccountFixed")}>Ver minhas contas</button>
+                <button onClick={() => navigation("/ViewAccountFixed")}>
+                    Ver minhas contas
+                </button>
             </div>
         </div>
     );

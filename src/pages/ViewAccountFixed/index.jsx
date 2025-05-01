@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs, where, query } from "firebase/firestore";
+import {
+    collection,
+    getDocs,
+    where,
+    query,
+    deleteDoc,
+    doc,
+} from "firebase/firestore";
 import { db } from "../../services/firebase";
 import { useContext } from "react";
 import { AuthContext } from "../../context";
 import Header from "../../components/header";
+import { toast } from "react-toastify";
 import "./style.css";
 
 export default function ViewAccountFixed() {
@@ -33,9 +41,9 @@ export default function ViewAccountFixed() {
         }
 
         Contas();
-    }, []);
+    }, [Del]);
 
-    async function Deletar(id) {
+    async function Del(id) {
         const ref = doc(db, "Account", id);
 
         await deleteDoc(ref)
@@ -59,7 +67,8 @@ export default function ViewAccountFixed() {
                         <p>Conta: {item.nameAccount}</p>
                         <p>Valor: {item.valor}</p>
                         <p>Vencimento: {item.vencimento}</p>
-                        <button onClick={() => Deletar(item.id)}>Excluir</button>
+                        <p>Id: {item.id}</p>
+                        <button onClick={() => Del(item.id)}>Excluir</button>
                     </div>
                 ))}
             </div>
