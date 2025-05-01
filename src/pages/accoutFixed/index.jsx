@@ -53,11 +53,13 @@ export default function AccoutFixed() {
                     maskChar=""
                     placeholder="Digite o valor"
                 />
-                <input
-                    placeholder="vencimento"
+                <InputMask
+                    id="date"
+                    mask="99/99/9999"
                     value={vencimento}
-                    type="date"
                     onChange={(e) => setVencimento(e.target.value)}
+                    maskChar=""
+                    placeholder="Digite o vencimento"
                 />
                 <button onClick={addAccount}>Salvar</button>
                 <button onClick={() => navigation("/ViewAccountFixed")}>
