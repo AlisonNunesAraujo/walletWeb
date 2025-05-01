@@ -1,0 +1,71 @@
+.accoutFixed {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.784);
+  align-items: center;
+}
+
+.accoutFixedForm {
+  width: 50%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  border: rgba(0, 0, 0, 0.111) solid 1px;
+  border-radius: 5px;
+}
+.accoutFixedForm h1 {
+  font-size: 25px;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(5, 5, 5, 0.86);
+}
+
+.accoutFixedForm input {
+  margin: 10px;
+  padding: 10px;
+  gap: 10px;
+  width: 50%;
+  border-radius: 5px;
+  outline: none;
+  border: rgba(0, 0, 0, 0.111) solid 1px;
+}
+
+.accoutFixedForm button {
+  margin: 10px;
+  padding: 10px;
+  gap: 10px;
+  width: 50%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: rgba(0, 0, 0, 0.111) solid 1px;
+}
+
+.accoutFixedForm button:hover {
+  background-color: rgba(0, 0, 0, 0.111);
+}
+
+@media screen and (max-width: 700px) {
+  .accoutFixed {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.784);
+    align-items: center;
+  }
+  .accoutFixedForm {
+    width: 90%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    border: rgba(0, 0, 0, 0.111) solid 1px;
+    border-radius: 5px;
+  }
+}

@@ -8,6 +8,8 @@ import PageNotFaund from "../pages/PageNotFaund";
 import Perfil from "../pages/Perfil";
 import CreateRegister from "../pages/CreateRegister";
 import ViewRegister from "../pages/ViewRegister";
+import AccoutFixed from "../pages/accoutFixed";
+import ViewAccountFixed from "../pages/ViewAccountFixed";
 export function Routs() {
   return (
     <Routes>
@@ -45,6 +47,24 @@ export function Routs() {
           </Private>
         }
       />
+      <Route
+        path="/AccountFixed"
+        element={
+          <Private>
+            <AccoutFixed />
+          </Private>
+        }
+      />
+      <Route
+        path="/ViewAccountFixed"
+        element={
+          <Private>
+            <ViewAccountFixed />
+          </Private>
+        }
+      />
+
+
 
       <Route path="/" element={<Login />} />
       <Route path="/Register" element={<Register />} />

@@ -11,6 +11,7 @@ import { deleteDoc } from "firebase/firestore";
 import { AuthContext } from "../../context";
 import { useContext } from "react";
 
+
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
   const navigation = useNavigate();
@@ -19,6 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     async function Push() {
+      console.log("Starting Push function");
       const uid = user.user.uid;
       const ref = collection(db, "receita");
 
@@ -37,12 +39,14 @@ export default function Home() {
         setData(lista);
         const response = lista.reduce((acc, item) => acc + item.valor, 0);
         setSaldo([response]);
+        console.log("Finished Push function");
       });
     }
 
     Push();
 
     async function Gastos() {
+      console.log("Starting Gastos function");
       const uid = user.user.uid;
       const ref = collection(db, "gastos");
       const gastosQuery = query(ref, where("uid", "==", uid));
@@ -58,6 +62,7 @@ export default function Home() {
         });
 
         setGastos(lista);
+        console.log("Finished Gastos function");
       });
     }
 
@@ -65,14 +70,17 @@ export default function Home() {
   }, [Deletar, DeletarGastos]);
 
   async function Deletar(id) {
+    console.log("Starting Deletar function");
     const ref = doc(db, "receita", id);
 
     await deleteDoc(ref)
       .then(() => {
         toast.success("Excluido com sucesso!");
+        console.log("Finished Deletar function");
       })
       .catch((err) => {
         toast.error("Algo deu errado!");
+        console.log("Error in Deletar function", err);
       });
   }
 
@@ -84,6 +92,7 @@ export default function Home() {
         toast.success("Excluido com sucesso!");
       })
       .catch((err) => {
+        console.log("Finished DeletarGastos function");
         toast.error("Algo deu errado!");
       });
   }
@@ -110,9 +119,16 @@ export default function Home() {
             <button onClick={() => navigation("/ViewRegister")}>
               <p>Ver registros</p>
             </button>
+            <button onClick={() => navigation("/AccountFixed")}>
+              <p>Adicionar Conta Fixa, exp: Conta de luz!</p>
+            </button>
+            <button onClick={() => navigation("/ViewAccountFixed")}>
+              <p>Ver suas conta fixas</p>
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
