@@ -67,7 +67,7 @@ export default function ViewAccountFixed() {
                         <p>Conta: {item.nameAccount}</p>
                         <p>Valor: {item.valor}</p>
                         <p>Vencimento: {item.vencimento}</p>
-                        <p>Id: {item.id}</p>
+
                         <button onClick={() => Del(item.id)}>Excluir</button>
                     </div>
                 ))}
