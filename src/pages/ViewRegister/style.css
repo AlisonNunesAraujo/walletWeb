@@ -43,6 +43,16 @@
   padding: 0;
   align-items: center;
 }
+
+.textInfoSaidas {
+  color: black;
+  font-size: 15px;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: bold;
+  text-align: center;
+}
 .infoBntMostrarLista {
   width: 75%;
   height: 100dvh;

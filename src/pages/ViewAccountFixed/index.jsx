@@ -62,15 +62,21 @@ export default function ViewAccountFixed() {
                 <h1>Seus registros de contas fixas mensais!</h1>
             </div>
             <div className="renderAccount">
-                {conta.map((item) => (
-                    <div key={item} className="areaRender">
-                        <p>Conta: {item.nameAccount}</p>
-                        <p>Valor: {item.valor}</p>
-                        <p>Vencimento: {item.vencimento}</p>
-
-                        <button onClick={() => Del(item.id)}>Excluir</button>
-                    </div>
-                ))}
+                {conta.length > 0 ? (
+                    conta.map((item) => (
+                        <div className="item" key={item.id}>
+                            <p>Conta: {item.nameAccount}</p>
+                            <p>Valor: {item.valor}</p>
+                            <p>Vencimento: {item.vencimento}</p>
+                            <button onClick={() => Del(item.id)}>
+                                Excluir
+                            </button>
+                        </div>
+                    ))
+                ) : (
+                    <p className="textInfo">Nenhuma conta cadastrada!</p>
+                )
+                }
             </div>
         </div>
     );

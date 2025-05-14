@@ -93,33 +93,39 @@ export default function ViewRegister() {
             <div className="areaRenderDados">
                 <div className="areaRenderReceita">
                     <h2 className="textTipo">Receita</h2>
-                    {data.map((item) => (
-                        <div key={item} className="areadados">
-                            <p className="textValor"> {item.valor}</p>
-                            <p className="textValor">{item.date}</p>
+                    {data.length > 0 ? (
+                        data.map((item) => (
+                            <div key={item} className="areadados">
+                                <p className="textValor"> {item.valor}</p>
+                                <p className="textValor">{item.date}</p>
 
-                            <button className="bntExcluir" onClick={() => Deletar(item.id)}>
-                                Excluir
-                            </button>
-                        </div>
-                    ))}
+                                <button className="bntExcluir" onClick={() => Deletar(item.id)}>
+                                    Excluir
+                                </button>
+                            </div>
+                        ))
+                    ) : (
+                        <p className="textInfoSaidas">Voçe ainda nao possui nenhum receita</p>
+                    )}
                 </div>
 
                 <div className="areaRenderGastos">
                     <h2 className="textTipo">Gastos</h2>
-                    {gastos.map((item) => (
-                        <div className="areadados">
-                            <p className="textValor">{item.valor}</p>
-                            <p className="textValor">{item.date}</p>
+                    {gastos.length > 0 ? (
+                        gastos.map((item) => (
+                            <div key={item} className="areadados">
+                                <p className="textValor"> {item.valor}</p>
+                                <p className="textValor">{item.date}</p>
 
-                            <button
-                                className="bntExcluir"
-                                onClick={() => DeletarGastos(item.id)}
-                            >
-                                Excluir
-                            </button>
-                        </div>
-                    ))}
+                                <button className="bntExcluir" onClick={() => DeletarGastos(item.id)}>
+                                    Excluir
+                                </button>
+                            </div>
+                        ))
+                    ) : (
+                        <p className="textInfoSaidas">Voçe ainda nao possui nenhum gasto</p>
+                    )
+                    }
                 </div>
             </div>
         </div>
