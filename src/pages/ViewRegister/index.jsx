@@ -105,7 +105,7 @@ export default function ViewRegister() {
                             </div>
                         ))
                     ) : (
-                        <p className="textInfoSaidas">Voçe ainda nao possui nenhum receita</p>
+                        <p className="textInfoSaidas">Voçe ainda nao possui nenhuma receita</p>
                     )}
                 </div>
 
