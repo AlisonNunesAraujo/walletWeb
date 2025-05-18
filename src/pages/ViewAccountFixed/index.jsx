@@ -64,7 +64,7 @@ export default function ViewAccountFixed() {
             <div className="renderAccount">
                 {conta.length > 0 ? (
                     conta.map((item) => (
-                        <div className="item" key={item.id}>
+                        <div className="areaRender" key={item.id}>
                             <p>Conta: {item.nameAccount}</p>
                             <p>Valor: {item.valor}</p>
                             <p>Vencimento: {item.vencimento}</p>
