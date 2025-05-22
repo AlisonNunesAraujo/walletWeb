@@ -20,7 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     async function Push() {
-      console.log("Starting Push function");
+
       const uid = user.user.uid;
       const ref = collection(db, "receita");
 
@@ -37,13 +37,13 @@ export default function Home() {
         });
 
         setData(lista);
-        const response = lista.reduce((acc, item) => acc + item.valor, 0);
-        setSaldo([response]);
-        console.log("Finished Push function");
+
+
       });
     }
 
     Push();
+
 
     async function Gastos() {
       console.log("Starting Gastos function");
@@ -62,7 +62,7 @@ export default function Home() {
         });
 
         setGastos(lista);
-        console.log("Finished Gastos function");
+
       });
     }
 
@@ -102,6 +102,8 @@ export default function Home() {
       <div className="globo">
         <div className="menu">
           <h2 className="title">Olá, Bem vindo!</h2>
+
+
 
           <button onClick={() => navigation("/Perfil")} className="bntPerfil">
             <FiUser size={25} color="black" />

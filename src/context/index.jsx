@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { addDoc, collection } from "firebase/firestore";
 
 export function Context({ children }) {
   const [user, setUser] = useState(null);
@@ -80,9 +81,21 @@ export function Context({ children }) {
       });
   }
 
+  async function PostName() {
+    try {
+      const data = await addDoc(collection(db, 'users'), {
+        name: 'Teste'
+      })
+      toast.success("Seu nome foi adicionado com sucesso!");
+    }
+    catch (err) {
+      toast.error("Algo deu errado!");
+    }
+  }
+
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut, loading }}
+      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut, loading, PostName }}
     >
       {children}
     </AuthContext.Provider>
