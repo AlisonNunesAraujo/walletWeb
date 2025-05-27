@@ -76,11 +76,11 @@ export default function Home() {
     await deleteDoc(ref)
       .then(() => {
         toast.success("Excluido com sucesso!");
-        console.log("Finished Deletar function");
+
       })
       .catch((err) => {
         toast.error("Algo deu errado!");
-        console.log("Error in Deletar function", err);
+
       });
   }
 

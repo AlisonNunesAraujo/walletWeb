@@ -15,7 +15,7 @@
   width: 15%;
   height: 100vh;
   display: flex;
-  background-color: rgba(255, 255, 255, 0.888);
+  background-color: rgba(255, 255, 255, 0.946);
   flex-direction: column;
   align-items: center;
   gap: 30px;
@@ -26,6 +26,7 @@
 .title {
   font-size: 25px;
   margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .bntPerfil {
   width: 80%;
@@ -70,7 +71,7 @@
   width: 80%;
   height: 150px;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.816);
+  background-color: #202020;
   color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
