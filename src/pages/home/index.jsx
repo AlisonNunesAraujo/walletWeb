@@ -11,7 +11,6 @@ import { deleteDoc } from "firebase/firestore";
 import { AuthContext } from "../../context";
 import { useContext } from "react";
 
-
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
   const navigation = useNavigate();
@@ -20,7 +19,6 @@ export default function Home() {
 
   useEffect(() => {
     async function Push() {
-
       const uid = user.user.uid;
       const ref = collection(db, "receita");
 
@@ -37,13 +35,10 @@ export default function Home() {
         });
 
         setData(lista);
-
-
       });
     }
 
     Push();
-
 
     async function Gastos() {
       console.log("Starting Gastos function");
@@ -62,7 +57,6 @@ export default function Home() {
         });
 
         setGastos(lista);
-
       });
     }
 
@@ -76,11 +70,9 @@ export default function Home() {
     await deleteDoc(ref)
       .then(() => {
         toast.success("Excluido com sucesso!");
-
       })
       .catch((err) => {
         toast.error("Algo deu errado!");
-
       });
   }
 
@@ -96,6 +88,7 @@ export default function Home() {
         toast.error("Algo deu errado!");
       });
   }
+
 
   return (
     <div className="conteiner">
@@ -116,7 +109,7 @@ export default function Home() {
           </div>
           <div className="areaBnts">
             <button onClick={() => navigation("/CreateRegister")}>
-              <p>Adicionar Receita/Gstos</p>
+              <p>Adicionar Receita/Gastos</p>
             </button>
             <button onClick={() => navigation("/ViewRegister")}>
               <p>Ver registros</p>
@@ -133,4 +126,3 @@ export default function Home() {
     </div>
   );
 }
-

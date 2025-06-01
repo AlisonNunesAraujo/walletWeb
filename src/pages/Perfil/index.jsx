@@ -1,14 +1,12 @@
 import './style.css'
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection, } from 'firebase/firestore';
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context";
-import { toast } from 'react-toastify';
-import { db } from '../../services/firebase';
+
+
 export default function Perfil() {
   const navigation = useNavigate();
   const { user, LogOut } = useContext(AuthContext);
-
 
 
   return (

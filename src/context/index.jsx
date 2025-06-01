@@ -14,7 +14,7 @@ import { addDoc, collection } from "firebase/firestore";
 
 export function Context({ children }) {
   const [user, setUser] = useState(null);
-
+  const [nameUser, setNameUser] = useState([])
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -32,7 +32,6 @@ export function Context({ children }) {
 
     });
     return () => unsubscribe();
-
 
 
   }, []);
@@ -81,21 +80,11 @@ export function Context({ children }) {
       });
   }
 
-  async function PostName() {
-    try {
-      const data = await addDoc(collection(db, 'users'), {
-        name: 'Teste'
-      })
-      toast.success("Seu nome foi adicionado com sucesso!");
-    }
-    catch (err) {
-      toast.error("Algo deu errado!");
-    }
-  }
+
 
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut, loading, PostName }}
+      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut, loading }}
     >
       {children}
     </AuthContext.Provider>
