@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { deleteDoc } from "firebase/firestore";
 import { AuthContext } from "../../context";
 import { useContext } from "react";
-
+import Cards from "../../components/cards";
 export default function Home() {
   const { user, LogOut } = useContext(AuthContext);
   const navigation = useNavigate();
@@ -103,25 +103,9 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="dashboard">
-          <div className="textTitle">
-            <h2>Dasboard</h2>
-          </div>
-          <div className="areaBnts">
-            <button onClick={() => navigation("/CreateRegister")}>
-              <p>Adicionar Receita/Gastos</p>
-            </button>
-            <button onClick={() => navigation("/ViewRegister")}>
-              <p>Ver registros</p>
-            </button>
-            <button onClick={() => navigation("/AccountFixed")}>
-              <p>Adicionar Conta Fixa, exp: Conta de luz!</p>
-            </button>
-            <button onClick={() => navigation("/ViewAccountFixed")}>
-              <p>Ver suas conta fixas</p>
-            </button>
-          </div>
-        </div>
+        <Cards />
+
+
       </div>
     </div>
   );
