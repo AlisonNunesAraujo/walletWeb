@@ -17,7 +17,7 @@ export default function Cards() {
                     <p>Ver registros</p>
                 </button>
                 <button onClick={() => navigation("/AccountFixed")}>
-                    <p>Adicionar Conta Fixa, exp: Conta de luz!</p>
+                    <p>Adicionar Conta Fixa!</p>
                 </button>
                 <button onClick={() => navigation("/ViewAccountFixed")}>
                     <p>Ver suas conta fixas</p>
