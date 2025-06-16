@@ -33,16 +33,16 @@
   width: 80%;
   height: 150px;
   border-radius: 5px;
-  background-color: blue;
+  background-color: #ccc;
   color: rgb(255, 255, 255);
-  border: rgb(0, 0, 0) solid 1px;
   cursor: pointer;
+  border: none;
 }
 
 .areaBnts button p {
   font-size: 20px;
-  font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
+  color: black;
 }
 @media screen and (max-width: 700px) {
   .conteiner {
@@ -91,14 +91,12 @@
     width: 70%;
     height: 10vh;
     border-radius: 5px;
-    background-color: blue;
+    background-color: #ccc;
     color: rgb(255, 255, 255);
-    border: black;
     cursor: pointer;
   }
   .areaBnts button p {
     font-size: 13px;
-    font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
   }
 }

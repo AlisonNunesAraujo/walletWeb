@@ -94,7 +94,7 @@ export default function Home() {
     <div className="conteiner">
       <div className="globo">
         <div className="menu">
-          <h2 className="title">Wallet - Finanças</h2>
+          <h2 className="title">Finanças</h2>
 
 
 

@@ -7,7 +7,7 @@ export default function Cards() {
     return (
         <div className="dashboard">
             <div className="textTitle">
-                <h2>Dasboard</h2>
+                <h2>Dashboard</h2>
             </div>
             <div className="areaBnts">
                 <button onClick={() => navigation("/CreateRegister")}>

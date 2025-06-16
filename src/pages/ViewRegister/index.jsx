@@ -114,7 +114,7 @@ export default function ViewRegister() {
                     {gastos.length > 0 ? (
                         gastos.map((item) => (
                             <div key={item} className="areadados">
-                                <p className="textValor"> {item.valor}</p>
+                                <p className="textValor">R$ {item.valor}</p>
                                 <p className="textValor">{item.date}</p>
 
                                 <button className="bntExcluir" onClick={() => DeletarGastos(item.id)}>

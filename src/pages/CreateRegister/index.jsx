@@ -71,7 +71,7 @@ export default function CreateRegister() {
                     value={dados}
                     onChange={(e) => setDados(e.target.value)}
                     maskChar=""
-                    placeholder="Digite o valor"
+                    placeholder="Digite algum valor"
                 />
 
                 <div>

@@ -8,14 +8,16 @@
 }
 
 .formRegister {
-  width: 70%;
+  width: 50%;
   height: 30%;
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: 20px;
-  border: rgba(0, 0, 0, 0.111) solid 1px;
   border-radius: 5px;
+  background-color: #ccc;
+  align-items: center;
+  justify-content: center;
 }
 .formRegister h1 {
   font-size: 25px;
@@ -70,6 +72,9 @@
     align-items: center;
     flex-direction: column;
     margin-top: 20px;
+    background-color: #ccc;
+    align-items: center;
+    justify-content: center;
   }
   .formRegister h1 {
     font-size: 20px;
