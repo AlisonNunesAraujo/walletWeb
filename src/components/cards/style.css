@@ -84,14 +84,15 @@
 
   .areaTitle {
     width: 100%;
-    height: 10vh;
+    height: auto;
     display: flex;
     align-items: center;
   }
 
   .areaEmail {
     width: 30%;
-    height: 10vh;
+    height: auto;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,5 +125,6 @@
   .areaBnts button p {
     font-size: 13px;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
   }
 }
