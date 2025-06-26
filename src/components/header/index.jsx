@@ -10,7 +10,7 @@ export default function Header() {
         <div className="header">
             <FaArrowLeft
                 size={24}
-                color="black"
+                color="white"
                 className="icon"
                 onClick={() => navigation("/home")}
             />

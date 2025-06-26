@@ -11,11 +11,8 @@ import { deleteDoc } from "firebase/firestore";
 import { AuthContext } from "../../context";
 import { useContext } from "react";
 import Cards from "../../components/cards";
+import Menu from "../../components/menu";
 export default function Home() {
-  const { user, LogOut } = useContext(AuthContext);
-  const navigation = useNavigate();
-  const [data, setData] = useState([]);
-  const [gastos, setGastos] = useState([]);
 
   useEffect(() => {
     async function Push() {
@@ -93,18 +90,8 @@ export default function Home() {
   return (
     <div className="conteiner">
       <div className="globo">
-        <div className="menu">
-          <h2 className="title">Finanças</h2>
-
-
-
-          <button onClick={() => navigation("/Perfil")} className="bntPerfil">
-            <FiUser size={25} color="black" />
-          </button>
-        </div>
-
+        <Menu />
         <Cards />
-
 
       </div>
     </div>

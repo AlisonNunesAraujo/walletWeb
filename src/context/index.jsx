@@ -6,35 +6,16 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { addDoc, collection } from "firebase/firestore";
-
 export function Context({ children }) {
   const [user, setUser] = useState(null);
-  const [nameUser, setNameUser] = useState([])
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
 
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        localStorage.setItem("@user", JSON.stringify(user));
-      } else {
-        setUser(null);
-        localStorage.removeItem("@user");
-      }
-
-    });
-    return () => unsubscribe();
-
-
-  }, []);
 
   async function RegisterUser(data) {
     setLoading(true);
@@ -84,7 +65,7 @@ export function Context({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut, loading }}
+      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut, loading, }}
     >
       {children}
     </AuthContext.Provider>

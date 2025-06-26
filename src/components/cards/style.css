@@ -1,29 +1,45 @@
 .dashboard {
   width: 100%;
   height: 100vh;
-  background-color: rgb(255, 255, 255);
+  background-color: #0c0f17;
 }
 
-.textTitle {
+.areaTitle {
   width: 100%;
   height: 10vh;
   display: flex;
   align-items: center;
-  background-color: rgb(236, 233, 233);
+  justify-content: space-between;
+  background-color: #0c0f17;
 }
-.textTitle h2 {
+.areaTitle h2 {
   margin-left: 20px;
   font-size: 28px;
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
-.areaBnts {
+.areaEmail {
   width: 50%;
-  height: 70vh;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #0c0f17;
+  justify-content: center;
+}
+.areaEmail p {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.areaBnts {
+  width: 80%;
+  height: 40vh;
+  display: flex;
+  flex-direction: row;
   margin-top: 20px;
   margin-left: 20px;
   gap: 30px;
@@ -33,7 +49,7 @@
   width: 80%;
   height: 150px;
   border-radius: 5px;
-  background-color: #ccc;
+  background-color: #1a202e;
   color: rgb(255, 255, 255);
   cursor: pointer;
   border: none;
@@ -42,7 +58,7 @@
 .areaBnts button p {
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
-  color: black;
+  color: white;
 }
 @media screen and (max-width: 700px) {
   .conteiner {
@@ -59,24 +75,35 @@
     align-items: center;
     gap: 30px;
   }
-  .title {
-    font-size: 18px;
-    margin-top: 20px;
-    text-align: center;
-    padding: 5px;
+  .areaTitle h2 {
+    margin-left: 10px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
   }
-  .textTitle {
+
+  .areaTitle {
     width: 100%;
-    height: 5vh;
+    height: 10vh;
     display: flex;
     align-items: center;
-    background-color: rgb(236, 233, 233);
   }
-  .textTitle h2 {
-    margin-left: 20px;
-    font-size: 20px;
-    font-weight: 600;
+
+  .areaEmail {
+    width: 30%;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0c0f17;
+    justify-content: center;
+    margin-right: 40px;
+  }
+  .areaEmail p {
+    font-size: 9px;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
   }
   .areaBnts {
     width: 80%;
@@ -91,8 +118,7 @@
     width: 70%;
     height: 10vh;
     border-radius: 5px;
-    background-color: #ccc;
-    color: rgb(255, 255, 255);
+    background-color: #1a202e;
     cursor: pointer;
   }
   .areaBnts button p {
