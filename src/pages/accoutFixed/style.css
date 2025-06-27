@@ -3,7 +3,7 @@
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.784);
+  background-color: #0c0f17;
   align-items: center;
 }
 
@@ -55,7 +55,7 @@
     height: 100dvh;
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.784);
+    background-color: #0c0f17;
     align-items: center;
   }
   .accoutFixedForm {

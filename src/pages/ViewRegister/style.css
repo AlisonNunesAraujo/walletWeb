@@ -1,7 +1,7 @@
 .viewRegister {
   width: 100%;
   height: 100vh;
-  background-color: rgb(255, 255, 255);
+  background-color: #0c0f17;
 }
 
 .areaRenderDados {
@@ -12,6 +12,14 @@
   justify-content: space-evenly;
   margin-top: 60px;
 }
+.textTipo {
+  color: white;
+  font: bold;
+  font-size: 15px;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+}
 
 .areaRenderReceita {
   width: 20%;
@@ -21,7 +29,7 @@
   align-items: center;
   flex-direction: column;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.393);
+  border: 1px solid rgba(121, 118, 118, 0.393);
   opacity: 0.9;
   gap: 10px;
   margin: 0;
@@ -37,7 +45,7 @@
   align-items: center;
   gap: 10px;
   flex-direction: column;
-  border: 1px solid rgba(0, 0, 0, 0.393);
+  border: 1px solid rgba(121, 118, 118, 0.393);
   opacity: 0.9;
   margin: 0;
   padding: 0;
@@ -45,7 +53,7 @@
 }
 
 .textInfoSaidas {
-  color: black;
+  color: white;
   font-size: 15px;
   font-family: sans-serif;
   letter-spacing: 2px;
@@ -64,7 +72,7 @@
   font-family: sans-serif;
 }
 .textValor {
-  color: rgb(0, 0, 0);
+  color: white;
   margin: 5px;
   font-size: 15px;
   font-family: sans-serif;
@@ -91,6 +99,7 @@
   .viewRegister {
     width: 100%;
     height: 100dvh;
+    background-color: #0c0f17;
   }
   .areaRenderReceita {
     width: 45%;
@@ -100,7 +109,7 @@
     align-items: center;
     flex-direction: column;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.393);
+    border: 1px solid rgba(100, 100, 100, 0.393);
 
     opacity: 0.9;
     gap: 10px;
@@ -116,7 +125,7 @@
     align-items: center;
     gap: 10px;
     flex-direction: column;
-    border: 1px solid rgba(0, 0, 0, 0.393);
+    border: 1px solid rgba(100, 100, 100, 0.393);
     opacity: 0.9;
     margin: 0;
     padding: 0;

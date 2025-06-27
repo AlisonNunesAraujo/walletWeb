@@ -21,7 +21,7 @@
   .header {
     width: 100%;
     height: auto;
-    background-color: rgba(0, 0, 0, 0.165);
+    background-color: #0c0f17;
     display: flex;
     align-items: center;
     gap: 15px;

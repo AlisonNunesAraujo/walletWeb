@@ -7,8 +7,10 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { data, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../services/firebase";
 export function Context({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -20,12 +22,15 @@ export function Context({ children }) {
   async function RegisterUser(data) {
     setLoading(true);
     try {
-      const { email, senha } = data;
-      const response = await createUserWithEmailAndPassword(auth, email, senha);
+      const { email, senha, name } = data;
+      const response = await createUserWithEmailAndPassword(auth, email, senha)
+
+
+
 
       toast.success("Conta craida com sucesso!");
       navigate("/Home");
-      localStorage.setItem("@user", JSON.stringify(response.user)); // Persiste o usuário
+      localStorage.setItem("@user", JSON.stringify(response.user));
       setLoading(false);
     } catch (err) {
       setLoading(false);

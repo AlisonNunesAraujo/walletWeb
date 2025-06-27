@@ -10,12 +10,11 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const schema = z.object({
-  nome: z.string().nonempty("O campo é obrigatório"),
   email: z.string().nonempty("O campo é obrigatório"),
   senha: z
     .string()
     .nonempty("O campo é obrigatório")
-    .min(3, "A senha deve ter ao menos 3 numeros ou 3 letras"),
+    .min(6, "A senha deve ter ao menos 6 numeros ou 6 letras"),
 });
 
 export default function Register() {
@@ -39,8 +38,7 @@ export default function Register() {
         <form className="formLogin" onClick={handleSubmit(Register)}>
           <h1 className="Title">Faça seu registro</h1>
 
-          <input placeholder="Nome" {...register("name")} id="name" />
-          <p>{errors.nome?.message}</p>
+
           <input placeholder="E-Mail" {...register("email")} id="email" />
           <p>{errors.email?.message}</p>
           <input

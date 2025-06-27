@@ -4,12 +4,13 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: #0c0f17;
 }
 
 .AccountFixed h1 {
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
-  color: rgba(5, 5, 5, 0.86);
+  color: white;
   text-align: center;
   margin-top: 20px;
 }
@@ -62,7 +63,7 @@
   font-size: 17px;
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
-  color: rgba(5, 5, 5, 0.86);
+  color: white;
   text-align: center;
 }
 
@@ -78,7 +79,7 @@
   .AccountFixed h1 {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgba(5, 5, 5, 0.86);
+    color: white;
     text-align: center;
     margin-top: 20px;
   }

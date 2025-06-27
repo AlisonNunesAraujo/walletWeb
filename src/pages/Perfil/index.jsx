@@ -41,10 +41,7 @@ export default function Perfil() {
     <div className='perfil'>
       <div>
         <h1>Seu Perfil</h1>
-        <h1 className='titleNome'>Seu nome:</h1>
-        {names.map((item, index) => (
-          <p className='textNome'> {item.name}</p>
-        ))}
+
 
 
         <h3 className='titleNome'>Email:</h3>
