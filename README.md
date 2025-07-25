@@ -26,9 +26,6 @@
 
 ## Apresentação dp Aplicativo
 
-### area wellcome
-
-![img da pagina](https://github.com/AlisonNunesAraujo/walletWeb/blob/main/assest/wellcome.jpg)
 
 ### Area de login!
 
