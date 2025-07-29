@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import './style.css'
+import { useEffect, useState } from "react";
+import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from '../../services/firebase';
+import { db } from "../../services/firebase";
 
 export default function Perfil() {
   const navigation = useNavigate();
@@ -25,9 +25,6 @@ export default function Perfil() {
             });
             setName(list);
           });
-
-
-
         });
       } catch {
         alert("occoreu um erro ao buscar seu nome!");
@@ -36,15 +33,12 @@ export default function Perfil() {
     getName();
   }, []);
 
-
   return (
-    <div className='perfil'>
+    <div className="perfil">
       <div>
         <h1>Seu Perfil</h1>
 
-
-
-        <h3 className='titleNome'>Email:</h3>
+        <h3 className="titleNome">Email:</h3>
         <input type="text" value={user.user.email} enabled />
         <button onClick={() => navigation("/home")}>
           <p>Voltar para a home</p>

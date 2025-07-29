@@ -30,7 +30,7 @@ export default function Login() {
   }
 
   return (
-    <div className="global" >
+    <div className="global">
       <div className="login">
         <form className="formLogin" onSubmit={handleSubmit(Hendle)}>
           <h1 className="Title">Entre na sua conta!</h1>

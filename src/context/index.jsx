@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 export const AuthContext = createContext({});
-
 import { auth } from "../services/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -17,16 +16,11 @@ export function Context({ children }) {
 
   const [loading, setLoading] = useState(false);
 
-
-
   async function RegisterUser(data) {
     setLoading(true);
     try {
       const { email, senha, name } = data;
-      const response = await createUserWithEmailAndPassword(auth, email, senha)
-
-
-
+      const response = await createUserWithEmailAndPassword(auth, email, senha);
 
       toast.success("Conta craida com sucesso!");
       navigate("/Home");
@@ -47,7 +41,7 @@ export function Context({ children }) {
       setUser(response);
       setLoading(false);
       navigate("/Home");
-      localStorage.setItem("@user", JSON.stringify(response.user)); // Persiste o usuário
+      localStorage.setItem("@user", JSON.stringify(response.user)); 
     } catch (err) {
       toast.error("Tente novamente!");
       setLoading(false);
@@ -66,11 +60,9 @@ export function Context({ children }) {
       });
   }
 
-
-
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut, loading, }}
+      value={{ signed: !!user, user, RegisterUser, LogarUser, LogOut, loading }}
     >
       {children}
     </AuthContext.Provider>
