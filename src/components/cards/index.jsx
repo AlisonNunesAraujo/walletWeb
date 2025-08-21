@@ -4,7 +4,10 @@ import "./style.css";
 import { AuthContext } from "../../context";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../services/firebase";
+
+
 export default function Cards() {
+    
     const { user } = useContext(AuthContext);
     const [names, setName] = useState([]);
     const navigation = useNavigate();

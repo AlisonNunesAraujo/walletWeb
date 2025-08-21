@@ -8,3 +8,16 @@
   display: flex;
   flex-direction: row;
 }
+
+@media screen and (max-width: 768px) {
+  .conteiner {
+    width: 100%;
+    height: 100dvh;
+  }
+  .globo {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: row;
+  }
+}
