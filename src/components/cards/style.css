@@ -1,130 +1,185 @@
 .dashboard {
   width: 100%;
-  height: 100dvh;
+  min-height: 100dvh;
   background-color: #0c0f17;
+  padding: 28px 32px;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
-.areaTitle {
-  width: 100%;
-  height: 10vh;
+/* Header */
+.dash-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dash-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dash-welcome {
+  color: #94a3b8;
+  font-size: 15px;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dash-welcome strong {
+  color: #e2e8f0;
+}
+
+.dash-email {
+  color: #64748b;
+  font-size: 13px;
+  margin: 0;
+  align-self: flex-start;
+  margin-top: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Summary Cards */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.summary-card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #0c0f17;
-}
-.areaTitle h2 {
-  margin-left: 20px;
-  font-size: 28px;
-  font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  gap: 16px;
+  padding: 20px 22px;
+  border-radius: 14px;
+  background-color: #151b28;
+  border: 1px solid #1e2a3b;
 }
 
-.areaEmail {
-  width: 50%;
-  height: 10vh;
+.summary-income  { border-left: 4px solid #4ade80; }
+.summary-expense { border-left: 4px solid #f87171; }
+.summary-balance-pos { border-left: 4px solid #60a5fa; }
+.summary-balance-neg { border-left: 4px solid #f87171; }
+
+.summary-icon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.summary-label {
+  font-size: 11px;
+  color: #64748b;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.summary-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.skeleton {
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(90deg, #1e2a3b 25%, #2d3f5a 50%, #1e2a3b 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  animation: shimmer 1.4s infinite;
+  min-width: 80px;
+  user-select: none;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Action Grid */
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.action-card {
+  background-color: #151b28;
+  border: 1px solid #1e2a3b;
+  border-radius: 14px;
+  padding: 26px 22px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #0c0f17;
-  justify-content: center;
+  gap: 6px;
 }
-.areaEmail p {
-  font-size: 18px;
+
+.action-card:hover {
+  background-color: #1a2438;
+  border-color: #2d3f5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+.action-icon {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.action-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
 }
 
-.areaBnts {
-  width: 80%;
-  height: 40vh;
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
-  margin-left: 20px;
-  gap: 30px;
-}
-
-.areaBnts button {
-  width: 80%;
-  height: 150px;
-  border-radius: 5px;
-  background-color: #1a202e;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  border: none;
-}
-
-.areaBnts button p {
-  font-size: 20px;
+.action-desc {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
 }
+
+/* Responsive */
 @media screen and (max-width: 768px) {
-  .conteiner {
-    width: 100%;
-    height: 100dvh;
+  .dashboard {
+    padding: 16px;
+    padding-bottom: 92px;
   }
 
-  .menu {
-    width: 40%;
-    height: 100dvh;
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.967);
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-  .areaTitle h2 {
-    margin-left: 10px;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+  .summary-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .areaTitle {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
+  .actions-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
-  .areaEmail {
-    width: 30%;
-    height: auto;
-    padding: 5px;
-    display: flex;
+  .dash-title {
+    font-size: 22px;
+  }
+
+  .summary-value {
+    font-size: 18px;
+  }
+
+  .dash-header {
     flex-direction: column;
-    align-items: center;
-    background-color: #0c0f17;
-    justify-content: center;
-    margin-right: 40px;
-  }
-  .areaEmail p {
-    font-size: 9px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    text-align: center;
-  }
-  .areaBnts {
-    width: 80%;
-    height: 50dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 20px;
-    gap: 30px;
-  }
-  .areaBnts button {
-    width: 70%;
-    height: 10vh;
-    border-radius: 5px;
-    background-color: #1a202e;
-    cursor: pointer;
-  }
-  .areaBnts button p {
-    font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    gap: 4px;
   }
 }

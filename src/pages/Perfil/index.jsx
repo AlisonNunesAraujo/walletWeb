@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../services/firebase";
+import { FiHome, FiLogOut, FiMail, FiUser } from "react-icons/fi";
 
 export default function Perfil() {
   const navigation = useNavigate();
@@ -14,38 +15,51 @@ export default function Perfil() {
   useEffect(() => {
     async function getName() {
       try {
-        const data = collection(db, "users");
-        const ref = query(data, where("uid", "==", user.user.uid));
+        const colRef = collection(db, "users");
+        const ref = query(colRef, where("uid", "==", user.user.uid));
         getDocs(ref).then((snapshot) => {
           let list = [];
           snapshot.forEach((doc) => {
-            list.push({
-              id: doc.id,
-              name: doc.data().name,
-            });
+            list.push({ id: doc.id, name: doc.data().name });
             setName(list);
           });
         });
       } catch {
-        alert("occoreu um erro ao buscar seu nome!");
+        console.log("Erro ao buscar nome do usuário");
       }
     }
     getName();
   }, []);
 
+  const initial = names[0]?.name?.charAt(0).toUpperCase() || user.user.email?.charAt(0).toUpperCase();
+
   return (
     <div className="perfil">
-      <div>
-        <h1>Seu Perfil</h1>
+      <div className="perfil-wrapper">
+        <div className="perfil-card">
+          <div className="perfil-avatar">{initial}</div>
 
-        <h3 className="titleNome">Email:</h3>
-        <input type="text" value={user.user.email} enabled />
-        <button onClick={() => navigation("/home")}>
-          <p>Voltar para a home</p>
-        </button>
-        <button onClick={() => LogOut()}>
-          <p>Sair da conta!</p>
-        </button>
+          <div className="perfil-info">
+            {names.map((item, index) => (
+              <p key={index} className="perfil-name">{item.name}</p>
+            ))}
+            <div className="perfil-field">
+              <FiMail size={14} />
+              <span>{user.user.email}</span>
+            </div>
+          </div>
+
+          <div className="perfil-actions">
+            <button className="btn-home" onClick={() => navigation("/home")}>
+              <FiHome size={17} />
+              Voltar para home
+            </button>
+            <button className="btn-logout" onClick={() => LogOut()}>
+              <FiLogOut size={17} />
+              Sair da conta
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,93 +1,135 @@
 .perfil {
   width: 100%;
-  height: 100dvh;
+  min-height: 100dvh;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #0c0f17;
-  align-items: center;
 }
 
-.perfil div {
-  width: 50%;
-  height: 50dvh;
+.perfil-wrapper {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.perfil-card {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.581);
-  margin-top: 20px;
-  border-radius: 10px;
   align-items: center;
-}
-.titleNome {
-  text-align: center;
-  font-size: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.textNome {
-  color: white;
-  text-align: center;
-  font-size: 15px;
-}
-.perfil div h3 {
-  font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  gap: 24px;
+  padding: 40px 32px;
+  border-radius: 20px;
+  background-color: #151b28;
+  border: 1px solid #1e2a3b;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.perfil div h1 {
-  margin-top: 22px;
+.perfil-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
-  margin-left: 20px;
-  color: white;
-  text-align: center;
+  flex-shrink: 0;
 }
-.perfil div p {
+
+.perfil-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.perfil-name {
   font-size: 20px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-left: 20px;
-}
-
-.perfil div button {
-  width: 30%;
-  padding: 7px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 20px;
-}
-.perfil div input {
-  width: 50%;
-  padding: 7px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 20px;
-  border: none;
-  outline: none;
-  background-color: cyan;
-}
-.perfil div button p {
-  font-size: 15px;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@media screen and (max-width: 700px) {
-  .perfil {
-    width: 100%;
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
+.perfil-field {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background-color: #0c0f17;
+  border: 1px solid #1e2a3b;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.perfil-field span {
+  font-size: 14px;
+  color: #94a3b8;
+  font-family: Arial, Helvetica, sans-serif;
+  word-break: break-all;
+}
+
+.perfil-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn-home,
+.btn-logout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.2s ease;
+}
+
+.btn-home {
+  background-color: rgba(96, 165, 250, 0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.btn-home:hover {
+  background-color: rgba(96, 165, 250, 0.22);
+  transform: translateY(-1px);
+}
+
+.btn-logout {
+  background-color: rgba(248, 113, 113, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.btn-logout:hover {
+  background-color: rgba(248, 113, 113, 0.22);
+  transform: translateY(-1px);
+}
+
+@media screen and (max-width: 600px) {
+  .perfil-wrapper {
+    padding: 16px;
+    padding-bottom: 24px;
   }
-  .perfil div {
-    width: 90%;
-    height: 50dvh;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-  .perfil div button {
-    width: 50%;
-    margin-left: 20px;
+
+  .perfil-card {
+    padding: 28px 20px;
   }
 }

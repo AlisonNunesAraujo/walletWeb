@@ -1,84 +1,103 @@
 import "./style.css";
-import { addDoc, doc, getDocs, where, query } from "firebase/firestore";
+import { addDoc } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { db } from "../../services/firebase";
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
 import { AuthContext } from "../../context";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header";
 import { format } from "date-fns";
 import InputMask from "react-input-mask";
+import { FiTrendingUp, FiTrendingDown } from "react-icons/fi";
 
 export default function CreateRegister() {
     const { user } = useContext(AuthContext);
-    const [dados, setDados] = useState();
+    const [dados, setDados] = useState("");
+    const [loading, setLoading] = useState(null);
     const navigation = useNavigate();
+
     async function AddReceita(e) {
         e.preventDefault();
-        if (!dados) {
-            toast.error("Digite algo!");
-            return;
-        }
-
+        if (!dados) { toast.error("Digite um valor!"); return; }
+        setLoading("receita");
         try {
-            const response = await addDoc(collection(db, "receita"), {
+            await addDoc(collection(db, "receita"), {
                 valor: dados,
                 uid: user.user.uid,
                 date: format(new Date(), "dd/MM/yyyy"),
-            }).then(() => {
-                toast.success("Receita adicionada com sucesso!");
-                setDados("");
             });
-            return;
+            toast.success("Receita adicionada com sucesso!");
+            setDados("");
         } catch (error) {
-            console.error("Erro ao adicionar receita:", error);
+            toast.error("Erro ao adicionar receita!");
+        } finally {
+            setLoading(null);
         }
     }
 
     async function AddGastos(e) {
-        e.preventDefault(e);
-        if (!dados) {
-            toast.error("Digite algo!");
-            return;
-        }
-
+        e.preventDefault();
+        if (!dados) { toast.error("Digite um valor!"); return; }
+        setLoading("gastos");
         try {
-            const response = await addDoc(collection(db, "gastos"), {
+            await addDoc(collection(db, "gastos"), {
                 valor: dados,
                 uid: user.user.uid,
                 date: format(new Date(), "dd/MM/yyyy"),
-            }).then(() => {
-                toast.success("Gastos adicionada com sucesso!");
-                setDados("");
             });
-            return;
+            toast.success("Gasto adicionado com sucesso!");
+            setDados("");
         } catch (error) {
-            console.error("Erro ao adicionar Gastos:", error);
+            toast.error("Erro ao adicionar gasto!");
+        } finally {
+            setLoading(null);
         }
     }
 
     return (
         <div className="addRegister">
             <Header />
-            <div className="formRegister">
-                <h1>Adicionar Receita/Gastos</h1>
+            <div className="register-wrapper">
+                <div className="formRegister">
+                    <div className="form-header">
+                        <h1>Novo Registro</h1>
+                        <p className="form-date">{format(new Date(), "dd/MM/yyyy")}</p>
+                    </div>
 
-                <InputMask
-                    id="valor"
-                    mask="R$ 999999,99"
-                    value={dados}
-                    onChange={(e) => setDados(e.target.value)}
-                    maskChar=""
-                    placeholder="Digite algum valor"
-                />
+                    <div className="input-group">
+                        <label htmlFor="valor">Valor</label>
+                        <InputMask
+                            id="valor"
+                            mask="R$ 999999,99"
+                            value={dados}
+                            onChange={(e) => setDados(e.target.value)}
+                            maskChar=""
+                            placeholder="R$ 0,00"
+                        />
+                    </div>
 
-                <div>
-                    <button onClick={(e) => AddReceita(e)}>Receita</button>
-                    <button onClick={(e) => AddGastos(e)}>Gastos</button>
+                    <div className="btn-group">
+                        <button
+                            className="btn-receita"
+                            onClick={AddReceita}
+                            disabled={loading !== null}
+                        >
+                            <FiTrendingUp size={18} />
+                            {loading === "receita" ? "Salvando..." : "Receita"}
+                        </button>
+                        <button
+                            className="btn-gastos"
+                            onClick={AddGastos}
+                            disabled={loading !== null}
+                        >
+                            <FiTrendingDown size={18} />
+                            {loading === "gastos" ? "Salvando..." : "Gasto"}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
+

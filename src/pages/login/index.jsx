@@ -7,11 +7,11 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const schema = z.object({
-  email: z.string().nonempty("O campo é obrigatório"),
+  email: z.string().nonempty("Informe seu e-mail").email("E-mail inválido"),
   senha: z
     .string()
-    .nonempty("O campo é obrigatório")
-    .min(3, "A senha deve ter ao menos 6 numeros ou 6 letras"),
+    .nonempty("Informe sua senha")
+    .min(6, "A senha deve ter pelo menos 6 caracteres"),
 });
 
 export default function Login() {
@@ -30,50 +30,48 @@ export default function Login() {
   }
 
   return (
-    <div className="global">
-      <div className="login">
-        <form className="formLogin" onSubmit={handleSubmit(Hendle)}>
-          <h1 className="Title">Entre na sua conta!</h1>
-
-          <input
-            placeholder="E-Mail"
-            className="inputs"
-            type="email"
-            {...register("email")}
-            id="email"
-          />
-          <p>{errors.email?.message}</p>
-
-          <input
-            placeholder="Senha"
-            className="inputs"
-            type="password"
-            {...register("senha")}
-            id="senha"
-          />
-          <p>{errors.senha?.message}</p>
-
-          {loading ? (
-            <button type="submit" className="bntLogin">
-              Carregando...
-            </button>
-          ) : (
-            <button type="submit" className="bntLogin">
-              Entrar
-            </button>
-          )}
-
-          <Link to="/Register" className="bntCriar">
-            Criar conta!
-          </Link>
-        </form>
-
-        <div className="apresentacao">
-          <img
-            src="https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-login-movel_114360-83.jpg?semt=ais_hybrid&w=740"
-            className="img"
-          />
+    <div className="auth-global">
+      <div className="auth-card">
+        <div className="auth-brand">
+          <h1 className="auth-brand-name">Finanças</h1>
+          <p className="auth-brand-sub">Controle seus gastos com simplicidade</p>
         </div>
+
+        <form className="auth-form" onSubmit={handleSubmit(Hendle)}>
+          <h2 className="auth-title">Entrar na conta</h2>
+
+          <div className="auth-field">
+            <label htmlFor="email">E-mail</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="seu@email.com"
+              className={errors.email ? "input-error" : ""}
+              {...register("email")}
+            />
+            {errors.email && <span className="field-error">{errors.email.message}</span>}
+          </div>
+
+          <div className="auth-field">
+            <label htmlFor="senha">Senha</label>
+            <input
+              id="senha"
+              type="password"
+              placeholder="••••••"
+              className={errors.senha ? "input-error" : ""}
+              {...register("senha")}
+            />
+            {errors.senha && <span className="field-error">{errors.senha.message}</span>}
+          </div>
+
+          <button type="submit" className="auth-btn-primary" disabled={loading}>
+            {loading ? "Entrando..." : "Entrar"}
+          </button>
+
+          <p className="auth-switch">
+            Não tem conta? <Link to="/Register">Criar conta</Link>
+          </p>
+        </form>
       </div>
     </div>
   );

@@ -1,70 +1,148 @@
 .AccountFixed {
   width: 100%;
-  height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   background-color: #0c0f17;
 }
 
-.AccountFixed h1 {
-  font-size: 25px;
+.view-content {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.view-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.view-header h1 {
+  font-size: 24px;
+  font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
-  text-align: center;
-  margin-top: 20px;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.view-count {
+  background-color: #1e2a3b;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .renderAccount {
-  width: 100%;
-  height: 70vh;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  overflow: auto;
-  margin-top: 20px;
-  align-items: center;
+  gap: 12px;
 }
 
 .areaRender {
-  width: 20%;
-  height: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background-color: #151b28;
+  border: 1px solid #1e2a3b;
+  border-left: 4px solid #f472b6;
+  transition: background-color 0.2s;
+}
+
+.areaRender:hover {
+  background-color: #1a2438;
+}
+
+.render-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: rgba(244, 114, 182, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.render-info {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-left: 20px;
+  gap: 6px;
+}
+
+.render-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.render-details {
+  display: flex;
+  gap: 16px;
+}
+
+.render-details span {
+  font-size: 13px;
+  color: #64748b;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
   align-items: center;
-  border-radius: 5px;
-  border: 1px solid rgba(39, 37, 37, 0.157);
-  opacity: 0.9;
-  padding: 15px;
-  margin-bottom: 10px;
-  background-color: #ccc;
+  gap: 4px;
 }
-.areaRender p {
-  font-size: 17px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
-  text-align: center;
-}
-.areaRender button {
-  width: 100px;
-  height: 30px;
-  border-radius: 5px;
-  border: none;
-  background-color: rgba(255, 0, 0, 0.773);
+
+.btn-delete {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  background-color: rgba(248, 113, 113, 0.1);
+  color: #f87171;
   cursor: pointer;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: rgba(248, 113, 113, 0.2);
+  transform: scale(1.05);
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 80px 0;
+}
+
+.empty-state p {
+  font-size: 16px;
+  color: #334155;
   font-family: Arial, Helvetica, sans-serif;
 }
-.textInfo {
-  font-size: 17px;
-  font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-  text-align: center;
+
+@media screen and (max-width: 700px) {
+  .view-content {
+    padding: 16px;
+  }
+
+  .render-details {
+    flex-direction: column;
+    gap: 4px;
+  }
 }
 
 @media screen and (max-width: 700px) {
